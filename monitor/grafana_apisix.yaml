@@ -1,0 +1,16 @@
+apiVersion: apisix.apache.org/v2beta3
+kind: ApisixRoute
+metadata:
+  name: grafana
+  namespace: monitor
+spec:
+  http:
+  - name: root
+    match:
+      hosts:
+      - grafana.hho-inc.com
+      paths:
+      - /*
+    backends:
+    - serviceName: grafana
+      servicePort: 3000
