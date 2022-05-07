@@ -1,0 +1,16 @@
+apiVersion: apisix.apache.org/v2beta3
+kind: ApisixRoute
+metadata:
+  name: prometheus
+  namespace: monitor
+spec:
+  http:
+  - name: root
+    match:
+      hosts:
+      - prometheus.hho-inc.com
+      paths:
+      - /*
+    backends:
+    - serviceName: prometheus
+      servicePort: 9090
