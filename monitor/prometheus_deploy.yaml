@@ -64,13 +64,6 @@ spec:
         args:
         - --volume-dir=/etc/config
         - --webhook-url=http://127.0.0.1:9090/-/reload
-        resources:
-          requests:
-            cpu: "0.5"
-            memory: "215m"
-          limits:
-            cpu: 1
-            memory: "1024m"
         volumeMounts:
         - mountPath: /etc/config
           name: config-volume
