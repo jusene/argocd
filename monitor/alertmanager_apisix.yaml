@@ -1,0 +1,16 @@
+apiVersion: apisix.apache.org/v2beta3
+kind: ApisixRoute
+metadata:
+  name: alertmanager
+  namespace: monitor
+spec:
+  http:
+  - name: root
+    match:
+      hosts:
+      - alert.hho-inc.com
+      paths:
+      - /*
+    backends:
+    - serviceName: alertmanager
+      servicePort: 9093
