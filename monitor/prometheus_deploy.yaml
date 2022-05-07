@@ -33,7 +33,7 @@ spec:
             memory: "512m"
           limits:
             cpu: 1
-            memory: "1024m"
+            memory: "4096m"
         livenessProbe:
           failureThreshold: 3
           httpGet:
