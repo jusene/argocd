@@ -28,11 +28,8 @@ spec:
         - --web.console.templates=/etc/prometheus/console
         - --web.enable-lifecycle
         resources:
-          requests:
-            cpu: "0.5"
-            memory: "512m"
           limits:
-            cpu: 1
+            cpu: 2
             memory: "4096m"
         livenessProbe:
           failureThreshold: 3

@@ -24,9 +24,6 @@ spec:
         - --storage.path=/data
         - --config.file=/etc/config/alertmanager.yml
         resources:
-          requests:
-            cpu: "0.5"
-            memory: "512m"
           limits:
             cpu: 1
             memory: "1024m"
