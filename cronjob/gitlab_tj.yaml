@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name:  gitlab_tj
+  name:  gitlab-tj
 spec:
   schedule: '50 23 * * *'
   jobTemplate:
@@ -10,6 +10,6 @@ spec:
         spec:
           containers:
             - image:  reg.hho-inc.com/devops/gitlab-tj
-              name:  gitlab_tj
+              name:  gitlab-tj
               imagePullPolicy: IfNotPresent
           restartPolicy: Never
