@@ -11,5 +11,5 @@ spec:
           containers:
             - image:  reg.hho-inc.com/devops/gitlab-tj
               name:  gitlab-tj
-              imagePullPolicy: IfNotPresent
+              imagePullPolicy: Always
           restartPolicy: Never
