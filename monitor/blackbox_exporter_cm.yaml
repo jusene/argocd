@@ -8,7 +8,7 @@ metadata:
 data:
   blackbox.yml: |
     modules:
-      http_2xx_get:
+      http_2xx:
         prober: http
         timeout: 10s
         http:
