@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name:  gitlab-tj
 spec:
-  schedule: '50 23 * * *'
+  schedule: '0 3 * * *'
   jobTemplate:
     spec:
       template:
