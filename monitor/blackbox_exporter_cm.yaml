@@ -22,8 +22,13 @@ data:
           method: POST
       tcp_connect:
         prober: tcp
-      icmp:
+      icmp_connect:
         prober: icmp
         timeout: 10s
         icmp:
           preferred_ip_protocol: "ip4"
+      dns_ch.vcn.hho-inc.com_check:
+        prober: dns
+        dns: 
+          preferred_ip_protocol: "ip4"
+          query_name: "ch.vcn.hho-inc.com"
