@@ -15,8 +15,7 @@ data:
           severity: critical
         annotations:
           summary: node is down
-    - name: High Memory Used
-      expr: 
+    
   prometheus.yml: |
     global:
       evaluation_interval: 1m
@@ -46,6 +45,16 @@ data:
       - server: consul-service.devops:8500
         services: ['node-exporter']
 
+    - job_name: HTTPCheck
+      scrape_configs: 15s
+      metrics_path: /
+      params: 
+        module: [http_2xx_get]
+      static_configs:
+      - targets: ['https://ch.hhodata.com']
+        labels:
+          blackbox: 'HTTPCheck'
+        
     - job_name: kubernetes-apiservers
       bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
       kubernetes_sd_configs:
