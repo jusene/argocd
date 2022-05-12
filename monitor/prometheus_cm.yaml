@@ -46,11 +46,11 @@ data:
         services: ['node-exporter']
 
     - job_name: HTTPCheck
-      metrics_path: /
+      metrics_path: /probe
       params: 
         module: [http_2xx]
       static_configs:
-      - targets: ['https://ch.hhodata.com']
+      - targets: ['ch.hhodata.com']
         labels:
           blackbox: 'HTTPCheck'
       relabel_configs:
