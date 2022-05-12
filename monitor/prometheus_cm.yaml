@@ -46,7 +46,6 @@ data:
         services: ['node-exporter']
 
     - job_name: HTTPCheck
-      scrape_configs: 15s
       metrics_path: /
       params: 
         module: [http_2xx_get]
@@ -54,6 +53,13 @@ data:
       - targets: ['https://ch.hhodata.com']
         labels:
           blackbox: 'HTTPCheck'
+        relabel_configs:
+          - source_labels: [__address__]
+            target_label: __param_target
+          - source_labels: [__param_target]
+            target_label: instance
+          - target_label: __address__
+            replacement: blackbox-exporter:9115  
         
     - job_name: kubernetes-apiservers
       bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
