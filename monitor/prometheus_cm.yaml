@@ -15,7 +15,7 @@ data:
           severity: critical
         annotations:
           summary: node is down
-          
+
   blackbox.yml: |
     groups:
     - name: blackbox_probe
@@ -58,6 +58,9 @@ data:
       consul_sd_configs:
       - server: consul-service.devops:8500
         services: ['node-exporter']
+        relabel_configs:
+        - source_labels: [__meta_consul_service_id]
+          target_label: instance
 
     - job_name: HTTPCheck
       metrics_path: /probe
