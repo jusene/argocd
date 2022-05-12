@@ -2,23 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: blackbox_exporter
-  name: blackbox_exporter
+    app: blackbox-exporter
+  name: blackbox-exporter
   namespace: monitor
 spec:
   replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-       app: blackbox_exporter
+       app: blackbox-exporter
   template:
     metadata:
       labels:
-        app: blackbox_exporter
+        app: blackbox-exporter
     spec:
       containers:
-      - name: blackbox_exporter
-        image: reg.hho-inc.com/devops/blackbox_exporter:latest
+      - name: blackbox-exporter
+        image: reg.hho-inc.com/devops/blackbox-exporter:latest
         imagePullPolicy: IfNotPresent
         args:
         - --config.file=/etc/config/blackbox.yml

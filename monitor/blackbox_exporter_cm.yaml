@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   labels:
-    app: blackbox_exporter
+    app: blackbox-exporter
   name: blackbox
   namespace: monitor
 data:
