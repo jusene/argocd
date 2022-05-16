@@ -21,7 +21,7 @@ data:
     - name: blackbox_probe
       rules:
       - alert: Service Unavailable
-        expr: probe_http_status_code >= 400
+        expr: probe_http_status_code >= 400 or probe_http_status_code < 200
         for: 1m
         labels: 
           severity: critical
