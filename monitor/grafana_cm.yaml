@@ -7,6 +7,11 @@ metadata:
   namespace: monitor
 data:
   grafana.ini: |
+    [server]
+    protocol = http
+    http_addr = 0.0.0.0
+    http_port = 3000
+    root_url = http://grafana.hho-inc.com
     [analytics]
     check_for_updates = true
     [grafana_net]
