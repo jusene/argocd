@@ -1,0 +1,75 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: provisioner
+
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: provisioner-runner
+rules:
+  - apiGroups: [""]
+    resources: ["persistentvolumes"]
+    verbs: ["get", "list", "watch", "create", "delete"]
+  - apiGroups: [""]
+    resources: ["persistentvolumeclaims"]
+    verbs: ["get", "list", "watch", "update"]
+  - apiGroups: ["storage.k8s.io"]
+    resources: ["storageclasses"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["list", "watch", "create", "update", "patch"]
+  - apiGroups: [""]
+    resources: ["endpoints"]
+    verbs: ["create", "delete", "get", "list", "watch", "patch", "update"]
+
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: run-provisioner
+subjects:
+  - kind: ServiceAccount
+    name: provisioner
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: provisioner-runner
+  apiGroup: rbac.authorization.k8s.io
+
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: provisioner
+  namespace: clickhouse-log
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: provisioner
+    spec:
+      serviceAccountName: provisioner
+      containers:
+        - name: provisioner
+          image: xiedeyantu/nfs-client-provisioner
+          volumeMounts:
+            - name: root
+              mountPath: /persistentvolumes
+          env:
+            - name: PROVISIONER_NAME
+              value: clickhouse/nfs
+            - name: NFS_SERVER
+              value: nfs2.hho-inc.com
+            - name: NFS_PATH
+              value: /data/clickhouse
+      volumes:
+        - name: root
+          nfs:
+            server: nfs2.hho-inc.com
+            path: /data/clickhouse
