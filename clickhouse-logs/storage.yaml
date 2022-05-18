@@ -4,3 +4,4 @@ metadata:
   name: sc-nfs
   namespace: clickhouse-logs
 provisioner: clickhouse/nfs
+allowVolumeExpansion: true
