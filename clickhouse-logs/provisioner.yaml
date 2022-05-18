@@ -34,7 +34,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: provisioner
-    namespace: default
+    namespace: clickhouse-logs
 roleRef:
   kind: ClusterRole
   name: provisioner-runner
