@@ -48,8 +48,9 @@ metadata:
   namespace: clickhouse-logs
 spec:
   replicas: 1
-  strategy:
-    type: Recreate
+  selector:
+    matchLabels:
+      app: provisioner
   template:
     metadata:
       labels:
