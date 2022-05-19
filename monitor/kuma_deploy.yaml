@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kuma
+  namespace: monitor
+  labels:
+    app: kuma
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kuma
+  template:
+    metadata:
+      labels:
+        app: kuma
+    spec:
+      containers:
+        - name: kuma
+          image: reg.hho-inc.com/devops/uptime-kuma
+          imagePullPolicy:  IfNotPresent
+          ports:
+            - containerPort: 3001
+              name: service
