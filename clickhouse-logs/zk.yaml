@@ -132,7 +132,7 @@ spec:
       name: datadir
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: clickhouse-nfs
+      storageClassName: sc-nfs
       resources:
         requests:
           storage: 20Gi
