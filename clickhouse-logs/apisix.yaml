@@ -1,0 +1,16 @@
+apiVersion: apisix.apache.org/v2beta3
+kind: ApisixRoute
+metadata:
+  name: ch-logs
+  namespace: clickhouse-logs
+spec:
+  http:
+  - name: root
+    match:
+      hosts:
+      - ch-logs.hho-inc.com
+      paths:
+      - /*
+    backends:
+    - serviceName: clickhouse-clickhouse
+      servicePort: 8123
