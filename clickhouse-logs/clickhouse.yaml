@@ -48,4 +48,4 @@ spec:
         spec:
           containers:
             - name: clickhouse-pod
-              image: yandex/clickhouse-server:latest
+              image: reg.hho-inc.com/devops/clickhouse-server:latest
