@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: clickhouse-logs-pvc-01
-  namespace: monitor
+  namespace: clickhouse-logs
 spec:
   resources:
     requests:
@@ -16,7 +16,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: clickhouse-logs-pvc-02
-  namespace: monitor
+  namespace: clickhouse-logs
 spec:
   resources:
     requests:
@@ -30,7 +30,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: clickhouse-logs-pvc-03
-  namespace: monitor
+  namespace: clickhouse-logs
 spec:
   resources:
     requests:
@@ -44,7 +44,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: clickhouse-logs-pvc-04
-  namespace: monitor
+  namespace: clickhouse-logs
 spec:
   resources:
     requests:
@@ -58,7 +58,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: clickhouse-logs-pvc-05
-  namespace: monitor
+  namespace: clickhouse-logs
 spec:
   resources:
     requests:
@@ -72,7 +72,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: clickhouse-logs-pvc-06
-  namespace: monitor
+  namespace: clickhouse-logs
 spec:
   resources:
     requests:
@@ -86,7 +86,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: clickhouse-logs-pvc-07
-  namespace: monitor
+  namespace: clickhouse-logs
 spec:
   resources:
     requests:
@@ -100,7 +100,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: clickhouse-logs-pvc-08
-  namespace: monitor
+  namespace: clickhouse-logs
 spec:
   resources:
     requests:
