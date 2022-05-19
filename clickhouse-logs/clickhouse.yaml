@@ -27,6 +27,7 @@ spec:
     volumeClaimTemplates:
       - name: default
         spec:
+          storageClassName: sc-nfs
           accessModes:
             - ReadWriteOnce
           resources:
