@@ -65,7 +65,7 @@ spec:
               mountPath: /persistentvolumes
           env:
             - name: PROVISIONER_NAME
-              value: clickhouse/nfs
+              value: clickhouse-nfs
             - name: NFS_SERVER
               value: nfs2.hho-inc.com
             - name: NFS_PATH

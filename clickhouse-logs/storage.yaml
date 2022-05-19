@@ -3,7 +3,7 @@ kind: StorageClass
 metadata:
   name: sc-nfs
   namespace: clickhouse-logs
-provisioner: clickhouse/nfs
+provisioner: clickhouse-nfs
 allowVolumeExpansion: true
 parameters:
   archiveOnDelete: "false"
