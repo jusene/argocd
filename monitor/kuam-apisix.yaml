@@ -1,0 +1,16 @@
+apiVersion: apisix.apache.org/v2beta3
+kind: ApisixRoute
+metadata:
+  name: kuma
+  namespace: monitor
+spec:
+  http:
+  - name: root
+    match:
+      hosts:
+      - kuma.hho-inc.com
+      paths:
+      - /*
+    backends:
+    - serviceName: kuma
+      servicePort: 3001

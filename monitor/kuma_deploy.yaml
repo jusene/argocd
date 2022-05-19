@@ -17,8 +17,15 @@ spec:
     spec:
       containers:
         - name: kuma
-          image: reg.hho-inc.com/devops/uptime-kuma
+          image: louislam/uptime-kuma:1
           imagePullPolicy:  IfNotPresent
           ports:
             - containerPort: 3001
               name: service
+          volumeMounts:
+            - name: storage
+              mountPath: /app/data
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: kuma-data
