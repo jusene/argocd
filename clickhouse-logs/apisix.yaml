@@ -14,3 +14,18 @@ spec:
     backends:
     - serviceName: clickhouse-clickhouse
       servicePort: 8123
+---
+apiVersion: apisix.apache.org/v2beta3
+kind: ApisixRoute
+metadata:
+  name: ch-logs-stream
+  namespace: clickhouse-logs
+spec:
+  stream:
+  - name: tcp-stream
+    protocol: TCP
+    match:
+      ingressPort: 9000
+    backends:
+    - serviceName: clickhouse-clickhouse
+      servicePort: 9000
