@@ -27,5 +27,5 @@ spec:
     match:
       ingressPort: 9000
     backend:
-    - serviceName: clickhouse-clickhouse
+      serviceName: clickhouse-clickhouse
       servicePort: 9000
