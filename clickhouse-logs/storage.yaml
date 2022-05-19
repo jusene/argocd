@@ -5,3 +5,5 @@ metadata:
   namespace: clickhouse-logs
 provisioner: clickhouse/nfs
 allowVolumeExpansion: true
+parameters:
+  archiveOnDelete: "false"
