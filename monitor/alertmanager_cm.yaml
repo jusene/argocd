@@ -18,6 +18,8 @@ data:
       webhook_configs:
         - url: "http://oops-api-serv.devops-daily:9001/apis/webhook/dingding?token=09e4073466c6f1df049ac87f1307e5dc88d71189940ae5311df814e722225566&template=basic_alarm"
           send_resolved: true
+        - url: "http://oops-api-serv.devops-daily:9001/apis/webhook/callvoice"
+          send_resolved: false
 
     inhibit_rules:
     - source_match:
