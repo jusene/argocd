@@ -46,4 +46,4 @@ spec:
         spec:
           containers:
             - name: clickhouse-pod
-              image: reg.hho-inc.com/devops/clickhouse-server:test
+              image: reg.hho-inc.com/devops/clickhouse-maxmind-geoip_clickhouse:latest
