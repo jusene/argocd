@@ -21,7 +21,7 @@ spec:
       - name: hho-logs
         layout:
           shardsCount: 4
-          replicasCount: 2
+          replicasCount: 1
 
   templates:
     volumeClaimTemplates:
@@ -33,6 +33,7 @@ spec:
           resources:
             requests:
               storage: 200Gi
+
     serviceTemplates:
       - name: clickhouse-service
         spec:
