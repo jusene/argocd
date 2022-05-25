@@ -15,7 +15,7 @@ spec:
 
   configuration:
     settings:
-      dictionaries_config: /etc/clickhouse-server/geoip_*.xml
+      dictionaries_config: /etc/clickhouse-server/geoip_asn_blocks_ipv4_dictionary.xml
     clusters:
       - name: hho-logs
         layout:
