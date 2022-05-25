@@ -14,11 +14,12 @@ spec:
       serviceTemplate: clickhouse-service
 
   configuration:
+    settings:
+      dictionaries_config: /etc/clickhouse-server/geoip_*.xml
     clusters:
       - name: hho-logs
         layout:
           shardsCount: 1
-          replicasCount: 1
 
   templates:
     volumeClaimTemplates:
