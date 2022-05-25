@@ -1,0 +1,49 @@
+apiVersion: "clickhouse.altinity.com/v1"
+kind: "ClickHouseInstallation"
+
+metadata:
+  name: "clickhouse-test"
+  namespace: clickhouse-logs
+
+spec:
+  defaults:
+    templates:
+      dataVolumeClaimTemplate: default
+      logVolumeClaimTemplate: default
+      podTemplate: clickhouse
+      serviceTemplate: clickhouse-service
+
+  configuration:
+    clusters:
+      - name: hho-logs
+        layout:
+          shardsCount: 1
+          replicasCount: 1
+
+  templates:
+    volumeClaimTemplates:
+      - name: default
+        spec:
+          storageClassName: sc-nfs
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 200Gi
+
+    serviceTemplates:
+      - name: clickhouse-service
+        spec:
+          ports:
+          - name: http
+            port: 8123
+          - name: tcp
+            port: 9000
+          type: NodePort
+
+    podTemplates:
+      - name: clickhouse
+        spec:
+          containers:
+            - name: clickhouse-pod
+              image: reg.hho-inc.com/devops/clickhouse-server:test
