@@ -14,6 +14,9 @@ spec:
       serviceTemplate: clickhouse-service
 
   configuration:
+    zookeeper:
+      nodes:
+      - host: zk-cs
     clusters:
       - name: hho-test
         layout:
