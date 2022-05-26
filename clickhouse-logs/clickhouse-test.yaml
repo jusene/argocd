@@ -18,8 +18,6 @@ spec:
       dictionaries_config: /etc/clickhouse-server/*_dictionary.xml
     clusters:
       - name: hho-logs
-        layout:
-          shardsCount: 1
 
   templates:
     volumeClaimTemplates:
