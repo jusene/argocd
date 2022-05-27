@@ -51,3 +51,4 @@ spec:
           containers:
             - name: clickhouse-pod
               image: reg.hho-inc.com/devops/clickhouse-server:test
+              imagePullPolicy: Always
