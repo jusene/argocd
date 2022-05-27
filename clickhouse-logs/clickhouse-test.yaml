@@ -14,8 +14,6 @@ spec:
       serviceTemplate: clickhouse-service
 
   configuration:
-    settings:
-      dictionaries_config: "*_dictionary.xml"
     zookeeper:
       nodes:
       - host: zk-cs
