@@ -22,6 +22,9 @@ spec:
         layout:
           shardsCount: 4
           replicasCount: 1
+    files:
+      config.d/dictionaries.xml: |
+        <clickhouse><dictionaries_config>dictionaries/*.xml</dictionaries_config></clickhouse>
 
   templates:
     volumeClaimTemplates:
@@ -45,8 +48,17 @@ spec:
           type: NodePort
 
     podTemplates:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                - {key: app.kubernetes.io/instance, operator: In, values: ['clickhouse-logs']}
+              topologyKey: kubernetes.io/hostname
+      containers:
       - name: clickhouse
         spec:
           containers:
             - name: clickhouse-pod
-              image: reg.hho-inc.com/devops/clickhouse-server:latest
+              image: reg.hho-inc.com/devops/clickhouse-server-maxmind:latest
+              imagePullPolicy: Always
