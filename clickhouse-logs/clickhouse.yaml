@@ -48,16 +48,15 @@ spec:
           type: NodePort
 
     podTemplates:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchExpressions:
-                - {key: app.kubernetes.io/instance, operator: In, values: ['clickhouse-logs']}
-              topologyKey: kubernetes.io/hostname
-      containers:
       - name: clickhouse
         spec:
+          affinity:
+            podAntiAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - labelSelector:
+                    matchExpressions:
+                    - {key: app.kubernetes.io/instance, operator: In, values: ['clickhouse-logs']}
+                  topologyKey: kubernetes.io/hostname
           containers:
             - name: clickhouse-pod
               image: reg.hho-inc.com/devops/clickhouse-server-maxmind:latest
