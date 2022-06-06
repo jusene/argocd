@@ -25,7 +25,14 @@ spec:
           protocol: TCP
         volumeMounts:
           - name:  config-volume
-            mountPath:  /usr/local/openresty/nginx/conf
+            mountPath:  /usr/local/openresty/nginx/conf/blackandwhitelist.json
+            subPath: blackandwhitelist.json
+          - name: config-volume
+            mountPath: /usr/local/openresty/nginx/conf/upstreams.conf
+            subPath: upstreams.conf
+          - name: config-volume
+            mountPath: /usr/local/openresty/nginx/conf/nginx.conf
+            subPath: nginx.conf
       volumes:
       - name: config-volume
         configMap:
