@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: resty-gateway
+  name: resty-gateway
+  namespace: aquaman-daily
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+       app: resty-gateway
+  template:
+    metadata:
+      labels:
+        app: resty-gateway
+    spec:
+      containers:
+      - name: resty-gateway
+        image: reg.hho-inc.com/aquaman-daily/resty-gateway:1654481656
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 443
+          protocol: TCP
