@@ -55,3 +55,16 @@ spec:
     backends:
     - serviceName: resty-gateway-serv
       servicePort: 80
+
+---
+apiVersion: apisix.apache.org/v2beta3
+kind: ApisixTls
+metadata:
+  name: resty-gateway
+  namespace: aquaman-daily
+spec:
+  hosts:
+  - daily-api.hho-inc.com
+  secret:
+    name: daily-api
+    namespace: aquaman-daily
