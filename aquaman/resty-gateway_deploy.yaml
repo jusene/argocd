@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: resty-gateway
-        image: reg.hho-inc.com/aquaman-daily/resty-gateway:1654482411
+        image: reg.hho-inc.com/aquaman-daily/resty-gateway:1654483658
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
@@ -34,7 +34,7 @@ spec:
   selector:
     app: resty-gateway
   ports:
-  - name:  name-of-the-port
+  - name:  gateway
     port:  80
     targetPort:  80
 
@@ -49,7 +49,7 @@ spec:
   - name: root
     match:
       hosts:
-      - daiy-api.hho-inc.com
+      - daily-api.hho-inc.com
       paths:
       - /*
     backends:
