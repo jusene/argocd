@@ -1,0 +1,510 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: resty-gateway-lua
+  namespace: aquaman-daily
+data:
+  acl.lua: |
+    local UID = {}
+    local DID = {}
+    local IP  = {}
+    local VIP = {}
+    local BIND = {}
+
+    ngx.shared.acl["UID"] = UID
+    ngx.shared.acl["DID"] = DID
+    ngx.shared.acl["IP"] = IP
+    ngx.shared.acl["VIP"] = VIP
+    ngx.shared.acl["BIND"] = BIND
+
+
+    -- 以下可以修改 --
+
+    -- 任嘉晖 水星 291634164@qq.com --
+    UID["264809857578725376"] = 1
+    DID["nmqHvYtCrO+QmD2/iF/KAw=="] = 1
+    -- 李明 思源 lm_2008@126.com --
+    UID["255669393051119616"] = 1
+    DID["kmRajZ10NOqfs0ys+7zhgw=="] = 1
+    -- 聂之翔 叶尼塞 nzxxavier0635@gmail.com --
+    UID["258530682249179136"] = 1
+    DID["AVa1AFlq2zeFiZCLbf0oh2c="] = 1
+    -- 张守闯 珠江 SC.Z@LIVE.COM --
+    UID["268869954093215744"] = 1
+    DID["vWop7hbbk1CJbsEq3EfCVg=="] = 1
+    -- 陈燚锋 鉴湖 2609902832@gmail.com --
+    UID["264510810250833920"] = 1
+    DID["AfYTRw9wmTLondk3wIYd2P4="] = 1
+    -- 屠哲俊 月牙泉 1143571084@qq.com --
+    UID["253575751654207488"] = 1
+    DID["GzCbtXOyl0bSNa+8xOTx6Q=="] = 1
+    -- 张灵炼 钱塘 rickyisfighting@yahoo.co.jp --
+    UID["269214608777048064"] = 1
+    DID["UbxIJlrYJx7N0ot3wZIC7g=="] = 1
+    -- 余昊伦 植物学 yuhaolum8@gmail.com --
+    UID["268828757194731520"] = 1
+    DID["CDmepZ/c0efIuIQUPUcy6Q=="] = 1
+    -- 韩森 浪速 zedentrnqer@gmail.com --
+    UID["269218764959019008"] = 1
+    DID["EAfrxIj4FfW+3utcuuMNqw=="] = 1
+    -- 周韬 江户 zhoutao324@gmail.com --
+    UID["264119602286456832"] = 1
+    DID["tMpsF113mdEkkqQ6A5aacA=="] = 1
+    -- 黄幸杏 波斯湾 myloverhxx@163.com --
+    UID["256524105069654016"] = 1
+    DID["HnSU2pip_rfDW3LD+jKPtQ=="] = 1
+    -- 付蓉 澜沧 94furong@gmail.com --
+    UID["253608754161938432"] = 1
+    DID["iQyd9dpwkAqki9dgv5BI9Q=="] = 1
+    -- 刘梦琳 密西 6607355@qq.com --
+    UID["268810226038239232"] = 1
+    DID["ojZroop1MWRJHYXY8IPd9w=="] = 1
+    -- 薛娇 尼斯 493914314@qq.com --
+    UID["253593642197872640"] = 1
+    DID["M6XAZFsQWDgkFQHFuiUxeg=="] = 1
+    -- 庄程星 喀纳斯 396900326@qq.com --
+    UID["275589293710274560"] = 1
+    DID["kpLnxkiGdpz_AKAEvkdaFQ=="] = 1
+    -- 徐利群 钱江 854128573@qq.com --
+    UID["264051719741140992"] = 1
+    DID["Ab5LPERQKTdgnhzB2erNWE0="] = 1
+    -- 王泓欢 千岛 wanghonghuan1106@gmail.com --
+    UID["271734211419860992"] = 1
+    DID["10vgTJ31T5rh39uem2Irqg=="] = 1
+    -- 无招 三江源 wuzhao@hhodata.com --
+    UID["255631648077410304"] = 1
+    DID["Q5SI4qJWtFhUJjGR6qylzg=="] = 1
+    -- jason 白泽 ditao0928@gmail.com --
+    UID["269786724261982208"] = 1
+    DID["6ZHFB7k919sP2eQqVE5G2w=="] = 1
+    -- 彭伟兴 扬子 pwx326@hotmail.com --
+    UID["260807422585630720"] = 1
+    DID["1YyWiugxXG+DIxzyaIADug=="] = 1
+    -- 苏迪 侠子 364476304@qq.com --
+    UID["256504312149078016"] = 1
+    DID["jBLTtcZIDX3bZxvM2CXgXw=="] = 1
+    -- 咸达 玄武 396875551@qq.com --
+    UID["253575716958924800"] = 1
+    DID["zSgFnsn36VWigP+d6EFtyA=="] = 1
+    -- 袁倩倩 连城 49247638@qq.com --
+    UID["258181407858257920"] = 1
+    DID["rZiApGqOs+qCECbGraKsOA=="] = 1
+    -- 刘慧芝 青弋 847858699@qq.com --
+    UID["253635229007245312"] = 1
+    DID["RCk1CF1G8ylg8erszQ9GkA=="] = 1
+    -- 冯秋君 三峡 feqiju@gmail.com --
+    -- 雁菡 尼罗 lisha1017@gmail.com --
+    UID["256748997698416640"] = 1
+    DID["zMTg4F3G3RGoMh_LY5+0gA=="] = 1
+    -- 方威 安大略 252071016@qq.com --
+    UID["268059485463932928"] = 1
+    DID["j7jJTvU3yMftfTEVHHPK2w=="] = 1
+    -- 红洋 红洋 shy1993502@sina.com --
+    UID["253991625691262976"] = 1
+    DID["UWJ81niilNE0i8vVcDjW0A=="] = 1
+    -- 王衍 潇河 a1030091197@gmail.com --
+    UID["268671201197453312"] = 1
+    DID["H4E+0lgFAX23EjlrnuN1Gg=="] = 1
+    -- 陈鋆 长津 boycy815@gmail.com --
+    UID["256155423470546944"] = 1
+    DID["AThYInaxtDHljVKRFXCy6uY="] = 1
+    -- 王博闻 南冰洋 17702774847@163.com --
+    UID["253826501097582592"] = 1
+    DID["AfIIzsO2hzUlkbncPT5N7XI="] = 1
+    -- 张玉 瑞穗 1498045592@qq.com --
+    UID["253820829882675200"] = 1
+    DID["NXDBiuBVOgUwuqDcktSqxw=="] = 1
+    -- 陆少杰 白令 lsj349859@gmail.com --
+    UID["254541893856161792"] = 1
+    DID["EAfrxIj4FfW+3utcuuMNqw=="] = 1
+    -- 张海龙 格陵兰 zhl19970919@gmail.com --
+    UID["268379032100302848"] = 1
+    DID["1sFDn_U0MIgJXyhkYFGcDw=="] = 1
+    -- 林子凯 Thunersee图恩 linzikaitc@gmail.com --
+    UID["254018033410928640"] = 1
+    DID["3ixSiUrH0jgv+CzSDtvM+g=="] = 1
+    -- 王秋兰 塞纳 qingqiu@hhocool.com --
+    UID["273570694493663232"] = 1
+    DID["ARBFy6EcDjNQrz5KTQzGbho="] = 1
+    -- 巫倩 山崎 wuqian.anita@163.com --
+    UID["269443271153971200"] = 1
+    DID["HCiSs2bKsRNnvcnMu7Qftw=="] = 1
+    -- 颜美琦 Evian enbiki77@163.com --
+    UID["253816536291110912"] = 1
+    DID["hgc85QD/XB8qGBUgG1bjcA=="] = 1
+    -- 张伟平 朝空 105546397@qq.com --
+    UID["254643518272729088"] = 1
+    -- 张黎黎 Seven allendog@qq.com --
+    UID["256839536645009408"] = 1
+    DID["S17KOvB7VYwuGgWgTm4bYw=="] = 1
+    -- 梅桑 赛里木 meisang119@gmail.com --
+    UID["253583957545742336"] = 1
+    DID["cwbneC83Js7aW2Eb4r1oMw=="] = 1
+    -- 易统 南湖 axren195@gmail.com --
+    UID["254314068217720832"] = 1
+    DID["AY3ljS9sdDa7vWhqgrxvWD0="] = 1
+    -- 祁俣凡 好望角 1364692268@qq.com --
+    UID["253575491846434816"] = 1
+    DID["ARxbpMOexDR9lQ_9MvltBkk="] = 1
+    -- 于晶 Урал乌拉尔 songlin.yj@gmail.com --
+    UID["267946427135586304"] = 1
+    DID["AQCKZq5a1z3Riew3+npkVSc="] = 1
+    -- 张腊梅 巴拉那 safei.zhang@hhodata.com --
+    UID["254661501460180992"] = 1
+    DID["aQMygYPvzgk7v2azUVdySA=="] = 1
+    -- 叶婷 Iguacu 伊瓜苏 tina.tingye@gmail.com --
+    UID["258685915247964160"] = 1
+    DID["1uoAvAo26UC3GZ1iHme9yQ=="] = 1
+    -- 彭远清 澎湖 624645347@qq.com --
+    UID["253611195804708864"] = 1
+    DID["Xaha6CYZRUTiYNBtYlPXJQ=="] = 1
+    -- 刘永 长风 killerleon@live.com --
+    UID["253580358128267264"] = 1
+    DID["AfLFsFWbsD1Ftt3n6MwqkH0="] = 1
+    -- 黄俊华 亚马逊(amazon) halfthink@qq.com --
+    UID["256190163930083328"] = 1
+    DID["fXx70HZAwF59CF4W7RlDSg=="] = 1
+    -- 马俊杰 富春江 1197173994@qq.com --
+    UID["260821789003771904"] = 1
+    DID["AQggjQlUlTSNkvgIUZfAfMI="] = 1
+    -- 吴晨亮 龙井 lingying.wcl@hhodata.com --
+    UID["268796897483845632"] = 1
+    DID["j3RMMpLRrkf+U__JjS+2lA=="] = 1
+    -- 朱鸿 一粟 hugozhu@gmail.com --
+    UID["257945185592307712"] = 1
+    DID["cWxL5FCMWgi0MMLRf4KKFQ=="] = 1
+    -- 刘金倾 青山 liujinqing518@163.com --
+    UID["253581341872910336"] = 1
+    DID["DRD4A8/SIaheUeMz3rbB1Q=="] = 1
+    -- 陈曦 黑龙 cigemainspur@163.com --
+    UID["254000722905952256"] = 1
+    DID["2q4n3FJht4dWh/Yo+gveoQ=="] = 1
+    -- 彦坂仁菜 香岚溪 nina.hho@outlook.jp --
+    UID["253602030336110592"] = 1
+    DID["xhNANtettnt/BeKqqky+uQ=="] = 1
+    -- 王锐昕 siri hho.siri.wang@gmail.com --
+    UID["264130049236561920"] = 1
+    DID["d3RPiGySx4Hs0W2a/6tm7g=="] = 1
+    -- 李赵磊 银河 galaxy@gmail.com --
+    UID["270576349796659200"] = 1
+    DID["NXDBiuBVOgUwuqDcktSqxw=="] = 1
+    -- 项嘉怡 温榆 jiayixiang98@gmail.com --
+    UID["268829561632878592"] = 1
+    DID["TuvUlI/BpN0INMnh2Bx/2w=="] = 1
+    -- 杜杰 萨尔特 1561386031@qq.com --
+    UID["270570808546455552"] = 1
+    DID["7fDUpMzestKJ7_j0QqkNAw=="] = 1
+    -- 三娃 Venice 497879159@qq.com --
+    UID["263975090817888256"] = 1
+    DID["AX3qNis_rD4AlWpJUqPU9HQ="] = 1
+    -- 铜镜 莱茵 wenjuan.zhang@hhodata.com --
+    UID["272039220854419456"] = 1
+    DID["ARl6Fh2rAjX3rNDNrMm4CdM="] = 1
+    -- 王衍 潇河 wangyan@hhocool.com --
+    -- 克琳 贝加尔 nfsqggb@126.com --
+    UID["269421331655716864"] = 1
+    DID["m66DZJTTyhAChX5lbu4hYQ=="] = 1
+    -- 夏梦云 梦莲 646350824@qq.com --
+    UID["272059849179688960"] = 1
+    DID["m7pYkEq0U3wJi17L5GrbZw=="] = 1
+    -- 元征 詹姆斯 james@hhocool.com --
+    UID["258272276435202048"] = 1
+    DID["jNxHUmEtq88Tmzd7oFtSvg=="] = 1
+    -- 胡志辉 龙泉 longquan@hhocool.com --
+    UID["272042264941850624"] = 1
+    DID["TzdFYSuJKDeTOStv_JaVOQ=="] = 1
+    -- 边佳佳 黄浦江 longquan@hhodata.com --
+    -- 罗千 千里 lq17873532836@163.com --
+    UID["272527608887930880"] = 1
+    DID["AePcszD6ATvWqGMmr__Gh6A="] = 1
+    -- 侯军峰 朔西 junfeng.hou@hhocool.com --
+    -- 沈扬 南北 shenyang@hhodata.com --
+    UID["271731706069807104"] = 1
+    DID["1UrjrFgun8YHxfxI9F7hMQ=="] = 1
+    -- 孙心悦 Spencer xinyue@hhodata.com --
+    UID["273505078667669504"] = 1
+    DID["m6_DC1J2LWJCfuvK2E6I6Q=="] = 1
+    -- 陈军霞 清江 sia@hhocool.com --
+    -- 刘春奎 里海 595254520@qq.com --
+    UID["271922882311909376"] = 1
+    DID["AbW7sky7uzvYr4EumPHM6nA="] = 1
+    -- 黄晓刚 苏伊士 627284482@qq.com --
+    UID["256822063593975808"] = 1
+    DID["AekqZA6WuzrTqAEm_yXrO6g="] = 1
+    -- 陈程 和田 c28151@gmail.com --
+    UID["273553023249182720"] = 1
+    DID["5aTUObglcTpKtipARVkdUQ=="] = 1
+    -- 袁玉强 白浪 562663868@qq.com --
+    UID["273153090796941312"] = 1
+    DID["ASbWbYK7STgUob+V3z0KizU="] = 1
+    -- 王煜 Mariana wy18406585179@gmail.com --
+    UID["253975775210926080"] = 1
+    DID["AdMIwaTluT30m3fVeB1ohy0="] = 1
+    -- 项嘉怡 温榆 jiayixiang98@gmail.com --
+    UID["268829561632878592"] = 1
+    DID["TuvUlI/BpN0INMnh2Bx/2w=="] = 1
+    -- 王秋兰 塞纳 qingqiu@hhocool.com --
+    UID["273570694493663232"] = 1
+    DID["ARBFy6EcDjNQrz5KTQzGbho="] = 1
+    -- 李梦婕 九溪 531762012@qq.com --
+    UID["273897424773214208"] = 1
+    DID["_uSe3laxbMLijYk8+pZqfw=="] = 1
+    -- 曾金吉 镜泊 hopezjj@126.com --
+    UID["255086311348662272"] = 1
+    DID["ASb970qYK0_1hZ04TB_yLQ=="] = 1
+    -- 黄兴 雁栖 772102626@qq.com --
+    UID["261862961419677696"] = 1
+    DID["8VE2s5ZpoIwGw4sm5pclnA=="] = 1
+    -- 王祈晖 麦哲伦 mrt2021@qq.com --
+    UID["253581832505815040"] = 1
+    DID["ku1rEiKnevsVYnRjTNNTfw=="] = 1
+    -- 刘博 海河 famas530@outlook.com --
+    UID["266160971796475904"] = 1
+    DID["U0fbFPqy_XPpkiRLb2T_8w=="] = 1
+    -- 天池 天池 escapeddog@gmail.com --
+    UID["268477130172559360"] = 1
+    DID["dRNHN9Sn2Vkx3en7k4l03A=="] = 1
+    -- 朱翁俊 长乐 2576419596@qq.com --
+    UID["253987927141412864"] = 1
+    DID["ASvLP1kNqjDSqquemzIJQ3s="] = 1
+    -- 林剑 流泉 lj64830139@gmail.com --
+    UID["255707282703151104"] = 1
+    DID["VF7lw1zZ+VgWmvQo5Ms/6w=="] = 1
+    -- 张满满 嘉陵 zmm1012575571@gmail.com --
+    UID["275580270713794560"] = 1
+    DID["ATfLRBGpJzqJmEAnONO3Ku0="] = 1
+    -- 王子环 洱海 1600063467@qq.com --
+    UID["266671639414992896"] = 1
+    DID["AQxVy0rP9DpRhS8t1pKCt0s="] = 1
+    -- 小可欣 苏里 1045088527@qq.com --
+    UID["274706642652655616"] = 1
+    DID["cY0FPr+6d_vRObwy1aYspQ=="] = 1
+    -- 安楠 楠溪 zhou.nancy778@gmail.com --
+    UID["273933801053253632"] = 1
+    DID["KBK5D4VV37zUR1EsHmjTGg=="] = 1
+    -- 李慧英 Arno lihuiying@hhocool.com --
+    UID["276706530642915328"] = 1
+    DID["YsBzaoSZ76PgTIldHtro+w=="] = 1
+    -- 余洁 大渡 852790873@qq.com --
+    UID["278834279327232000"] = 1
+    DID["AVzGo4+_Ozjxkoeiq1Z1juU="] = 1
+    -- 彦坂仁菜 香岚溪 moumoon2727@gmail.com --
+    UID["268740553787600896"] = 1
+    DID["lzGKwmKE8RmIgzf5024MUA=="] = 1
+    -- 尚城 安大略 nwang.app@hotmail.com --
+    UID["279631311692394496"] = 1
+    DID["z4gmQkRyhY7tL9nzFH_geQ=="] = 1
+
+
+
+    -- end --
+
+    -- 湖畔1号 DID --
+    DID["V+fdn2siueZhQIV9nfBkJg=="] = 1
+    DID["pc_hho_cool_45b4d97f-14c3-46cf-886d-86ec67451e05"] = 1
+    DID["pc_hho_cool_e287dbed-8e83-4ec2-9520-44343ea09c17"] = 1
+    DID["BcCAZk5US6S5Iy2EF0r96A=="] = 1
+    DID["x9OQqJjaLUUneL48IYVJNg=="] = 1
+    DID["AVa1AFlq2zeFiZCLbf0oh2c="] = 1
+    DID["cWxL5FCMWgi0MMLRf4KKFQ=="] = 1
+    DID["AX3qNis_rD4AlWpJUqPU9HQ="] = 1
+    DID["kmRajZ10NOqfs0ys+7zhgw=="] = 1
+    DID["TtnNjhY+qtEse35GFvfbjA=="] = 1
+    DID["AQCKZq5a1z3Riew3+npkVSc="] = 1
+    DID["drBktRcCwaED7fFC3YeQNw=="] = 1
+    DID["zSgFnsn36VWigP+d6EFtyA=="] = 1
+    DID["AWFivTw+TjceunJ1VLECS6A="] = 1
+    DID["6ZHFB7k919sP2eQqVE5G2w=="] = 1
+    DID["QbtO8pWA8hEeHp1Cr9XVEg=="] = 1
+    DID["1YyWiugxXG+DIxzyaIADug=="] = 1
+    DID["SGM9hmgOJ2CSvfw59LAVcg=="] = 1
+    DID["DRD4A8/SIaheUeMz3rbB1Q=="] = 1
+    DID["AfIIzsO2hzUlkbncPT5N7XI="] = 1
+    DID["AQxVy0rP9DpRhS8t1pKCt0s="] = 1
+    DID["2q4n3FJht4dWh/Yo+gveoQ=="] = 1
+    DID["EAfrxIj4FfW+3utcuuMNqw=="] = 1
+    DID["FcDRFUdIA8/rG47dR31SAQ=="] = 1
+    DID["pc_hho_cool_2711f0e1-8bc1-4959-98ba-56f3cdbc33f3"] = 1
+    DID["jZLhwUUZcWBSkg0NCXb+ow=="] = 1
+    DID["j7jJTvU3yMftfTEVHHPK2w=="] = 1
+    DID["AQggjQlUlTSNkvgIUZfAfMI="] = 1
+    DID["7fDUpMzestKJ7_j0QqkNAw=="] = 1
+    DID["94wDUcbap3UUVm_RJ2xiaA=="] = 1
+    DID["HpBifP3Gf5ZzvOj6GhQ24A=="] = 1
+    DID["S17KOvB7VYwuGgWgTm4bYw=="] = 1
+    DID["5aTUObglcTpKtipARVkdUQ=="] = 1
+    DID["zMTg4F3G3RGoMh_LY5+0gA=="] = 1
+    DID["M6XAZFsQWDgkFQHFuiUxeg=="] = 1
+    DID["aQMygYPvzgk7v2azUVdySA=="] = 1
+    DID["pc_hho_cool_698d20d0-b7e6-49a2-82e0-00049cdc49dc"] = 1
+    DID["AXoEh2sVmjNZvFR1uuO2OiE="] = 1
+    DID["Q5SI4qJWtFhUJjGR6qylzg=="] = 1
+    DID["1rxBIYOkIEo2Zbyw2PNhWg=="] = 1
+    DID["AVLhXltGgjP7vClGUumtUCg="] = 1
+    DID["NXDBiuBVOgUwuqDcktSqxw=="] = 1
+    DID["ojZroop1MWRJHYXY8IPd9w=="] = 1
+    DID["pG8tL2cNWug6yqvJvtPZ0g=="] = 1
+    DID["GzCbtXOyl0bSNa+8xOTx6Q=="] = 1
+    DID["1uoAvAo26UC3GZ1iHme9yQ=="] = 1
+    DID["UWJ81niilNE0i8vVcDjW0A=="] = 1
+    DID["1sFDn_U0MIgJXyhkYFGcDw=="] = 1
+    DID["RCk1CF1G8ylg8erszQ9GkA=="] = 1
+    DID["fXx70HZAwF59CF4W7RlDSg=="] = 1
+    DID["jNxHUmEtq88Tmzd7oFtSvg=="] = 1
+    DID["AeOwPhDQ3zYytUyHNGTgRy4="] = 1
+    DID["pc_hho_cool_b4a53790-1-4b84-9809-6155df718997"] = 1
+    DID["AbW7sky7uzvYr4EumPHM6nA="] = 1
+    DID["ARxbpMOexDR9lQ_9MvltBkk="] = 1
+    DID["Xaha6CYZRUTiYNBtYlPXJQ=="] = 1
+    DID["HJA0XyvluN2BmrgPkdU3cQ=="] = 1
+    DID["ARl6Fh2rAjX3rNDNrMm4CdM="] = 1
+    DID["8VE2s5ZpoIwGw4sm5pclnA=="] = 1
+    DID["cwbneC83Js7aW2Eb4r1oMw=="] = 1
+    DID["d3RPiGySx4Hs0W2a/6tm7g=="] = 1
+    DID["AfYTRw9wmTLondk3wIYd2P4="] = 1
+    DID["qSVV_G1u8kQsy9OBiiAk2g=="] = 1
+    DID["j2daLxrDidWgkemMg4cPbw=="] = 1
+    DID["FwFaM3Bh2fPE9FsbS4Z1bA=="] = 1
+    DID["DZALBeoiPNwCraK8IiW3VQ=="] = 1
+    DID["AdpqLHfSsjtDuqwTU+avFbc="] = 1
+    DID["pc_hho_cool_ee41f69b-f3cd-485e-b7e8-b9f13beac717"] = 1
+    DID["pc_hho_cool_85b2dd0c-954d-4fb0-a1c9-15b9436c82c6"] = 1
+    DID["jBLTtcZIDX3bZxvM2CXgXw=="] = 1
+    DID["HCiSs2bKsRNnvcnMu7Qftw=="] = 1
+    DID["LXe7X+UKvEK5JCuzEcVPSg=="] = 1
+    DID["UbxIJlrYJx7N0ot3wZIC7g=="] = 1
+    DID["U0psLhJPxR+zGPgC24fvVw=="] = 1
+    DID["5OXJVVWSU6c7FVvc7vxJ6g=="] = 1
+    DID["pc_hho_cool_1951249c-4bb8-4738-a43d-ae0c6b633732"] = 1
+    DID["pc_hho_cool_51d1c0dd-629c-48fe-856e-faa7fb47a549"] = 1
+    DID["pc_hho_cool_df128e59-3357-4c5c-b688-576fe2b59997"] = 1
+    DID["ypWBak5BLJ0jKisGj5yOUA=="] = 1
+    DID["BDOMSun+k43saVaMNnkRkQ=="] = 1
+    DID["AU+MfXv+6DtKsCQwfDuRir4="] = 1
+    DID["AZP_Q1H2gjwKiyhJII81CXs="] = 1
+    DID["I4AHCHDF+jsmMpt7Br0yrA=="] = 1
+    DID["hgc85QD/XB8qGBUgG1bjcA=="] = 1
+    DID["siLQn46yfO_Ydk+6inR6dA=="] = 1
+    DID["tMpsF113mdEkkqQ6A5aacA=="] = 1
+    DID["nvUo8x4ruypXYQ3Ziw5R9A=="] = 1
+    DID["10vgTJ31T5rh39uem2Irqg=="] = 1
+    DID["AfLFsFWbsD1Ftt3n6MwqkH0="] = 1
+    DID["AY3ljS9sdDa7vWhqgrxvWD0="] = 1
+    DID["L7CkhScSKj_Izc0tFW4IQQ=="] = 1
+    DID["TzdFYSuJKDeTOStv_JaVOQ=="] = 1
+    DID["C1OshAUU7WcJ902lTSiR1w=="] = 1
+    DID["dRNHN9Sn2Vkx3en7k4l03A=="] = 1
+    DID["OjhpTjc5+OOs6Etdf7ECVQ=="] = 1
+    DID["iEWRzAaq7hov9Fec6wqAWg=="] = 1
+    DID["rZiApGqOs+qCECbGraKsOA=="] = 1
+    DID["RZ41oFilmVpK9+Yje+YCqg=="] = 1
+    DID["bP0kUOjoLr5zHWomImnvFA=="] = 1
+    DID["AekqZA6WuzrTqAEm_yXrO6g="] = 1
+    DID["1WGYGEuT80QG7xW7Y+WqwQ=="] = 1
+    DID["qSbgfX6Kms4HYFkbp0ijTQ=="] = 1
+    DID["JZu6lG+XJ4ahwhrr72pcoQ=="] = 1
+    DID["nmqHvYtCrO+QmD2/iF/KAw=="] = 1
+    DID["CDmepZ/c0efIuIQUPUcy6Q=="] = 1
+    DID["pc_hho_cool_f910d47e-26fc-4fde-8334-7cf79086f57a"] = 1
+    DID["iOt6DgnbHE7P31BQdXboyw=="] = 1
+
+    -- 湖畔2号 DID --
+    DID["AekqZA6WuzrTqAEm_yXrO6g="] = 1
+    DID["ATVJ67z3VjP3tHcVSd08dqU="] = 1
+
+    -- 湖畔1号 --
+    IP["124.160.17.86"] = 1
+    -- 湖畔2号 --
+    IP["124.160.17.82"] = 1
+    -- Portal --
+    IP["172.21.0.1"] = 1
+    -- Portal Test --
+    IP["47.97.103.52"] = 1
+    -- hz-portal-server --
+    IP["47.96.224.37"] = 1
+    -- sg-nserver-prd-02 --
+    IP["47.241.26.35"] = 1
+    -- hk-ali-pub-02 --
+    IP["47.242.114.223"] = 1
+    -- hz-item-daily --
+    IP["121.40.65.179"] = 1
+    -- hk-dns-pro-01 --
+    IP["8.217.9.139"] = 1
+    -- hk-dns-pub-01 --
+    IP["8.218.245.52"] = 1
+    -- hk-ali-pro-01 --
+    IP["47.242.114.223"] = 1
+    -- hk-shop-01 --
+    IP["8.217.78.189"] = 1
+    -- jp-ali-01 --
+    IP["8.211.129.0"] = 1
+    -- jp-pro-01 --
+    IP["47.74.12.51"] = 1
+    -- jp-ali-02 --
+    IP["8.209.246.72"] = 1
+    -- jp-ali-03 --
+    IP["8.209.252.102"] = 1
+
+
+    -- 海智中心 --
+    IP["115.199.167.111"] = 1
+    -- 海智中心 --
+    IP["115.216.7.38"] = 1
+    -- 海智中心 --
+    IP["115.227.210.90"] = 1
+    -- 海智中心 --
+    IP["139.196.35.10"] = 1
+    -- 海智中心 --
+    IP["60.186.163.183"] = 1
+
+
+    -- VIP --
+
+    -- 测试环境haolun@gmail.com --
+    VIP["279621876626518016"] = false
+    -- 测试环境tina.tingye@gmail.com --
+    VIP["271041955218092032"] = false
+    -- 测试环境cigemainspur@163.com --
+    -- VIP["272031550269321216"] = true --
+
+
+    -- BIND --
+    -- 测试环境haolun@gmail.com --
+    BIND["279621876626518016"] = false
+    -- 测试环境tina.tingye@gmail.com --
+    BIND["271041955218092032"] = true
+  upstream.lua: |
+    local config = {}
+    ngx.shared.rewrite_conf = config
+
+    -- 以下可以修改 --
+
+    config["/user"]          = "user_service"
+    config["/coupon"]        = "coupon_service"
+    config["/push"]          = "push_service"
+    config["/invite"]        = "invite_service"
+    config["/file"]          = "file_service"
+    config["/user_orders"]   = "otm_service"
+    config["/user_favourite"] = "social_service"
+    config["/user_feeds"]    = "feeds_service"
+    config["/user_feeds_staging"] = "feeds_service_staging"
+    config["/item"]          = "item_service"
+    config["/i"]             = "pdp_service"
+    config["/search"]        = "search_service"
+    config["/shopify"]       = "shopify_api_service"
+    config["/fulfill"]       = "fulfill_service"
+    config["/points"]        = "points_service"
+    config["/kankan"]        = "kankan_service"
+    config["/order_reviews"] = "order_reviews_service"
+    config["/sync"]          = "sync_service"
+    config["/im"]            = "im_service"
+    config["/ip"]            = "ip_service"
+    config["/live"]          = "live_service"
+    config["/config"]        = "config_service"
+    config["/trade"]         = "trade_service"
+    config["/marketing"]     = "marketing_service"
+    config["/cart"]          = "cart_service"
+    config["/hot"]           = "hot_service"
+    config["/s"]             = "static_service"
+    config["/graphql"]       = "graphql_service"
+    config["/refund"]        = "refund_service"

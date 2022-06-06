@@ -33,11 +33,21 @@ spec:
           - name: config-volume
             mountPath: /usr/local/openresty/nginx/conf/nginx.conf
             subPath: nginx.conf
+          - name: config-lua
+            mountPath: /usr/local/openresty/nginx/lua/acl.lua
+            subPath: acl.lua
+          - name: config-lua
+            mountPath: /usr/local/openresty/nginx/lua/upstream.lua
+            subPath: upstream.lua
       volumes:
       - name: config-volume
         configMap:
           defaultMode: 420
           name: resty-gateway
+      - name:  config-lua
+        configMap:
+          defaultMode: 420
+          name: resty-gateway-lua
 
 ---
 kind: Service
