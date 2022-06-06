@@ -52,6 +52,11 @@ spec:
       - daily-api.hho-inc.com
       paths:
       - /*
+    plugins:
+    - name: redirect
+      enable: true
+      config:
+        http_to_https: true
     backends:
     - serviceName: resty-gateway-serv
       servicePort: 80
