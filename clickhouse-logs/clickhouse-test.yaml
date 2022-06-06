@@ -12,6 +12,16 @@ spec:
             # image: clickhouse/clickhouse-server:22.3
             image: clickhousepro/clickhouse-server-maxmind:22.3
             imagePullPolicy: Always
+    serviceTemplates:
+      - name: clickhouse-service
+        spec:
+          ports:
+          - name: http
+            port: 8123
+          - name: tcp
+            port: 9000
+          type: NodePort
+          
   defaults:
     templates:
       podTemplate: maxmind
