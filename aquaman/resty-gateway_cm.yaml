@@ -1,0 +1,816 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: resty-gateway
+  namespace: aquaman-daily
+data:
+  blackandwhitelist.json: |
+    {
+    "gwEffect": true,
+    "open": true,
+    "autoBlock": false,
+    "warnMailDomain": [
+        "qq",
+        "163",
+        "126",
+        "sina",
+        "sohu",
+        "aliyun",
+        "sogou",
+        "tom"
+    ],
+    "uids": [
+        "264809857578725376",
+        "255669393051119616",
+        "258530682249179136",
+        "268869954093215744",
+        "264510810250833920",
+        "253575751654207488",
+        "269214608777048064",
+        "268828757194731520",
+        "269218764959019008",
+        "264119602286456832",
+        "256524105069654016",
+        "253608754161938432",
+        "268810226038239232",
+        "253593642197872640",
+        "275589293710274560",
+        "264051719741140992",
+        "271734211419860992",
+        "255631648077410304",
+        "269786724261982208",
+        "260807422585630720",
+        "256504312149078016",
+        "253575716958924800",
+        "258181407858257920",
+        "253635229007245312",
+        "256748997698416640",
+        "268059485463932928",
+        "253991625691262976",
+        "268671201197453312",
+        "256155423470546944",
+        "253826501097582592",
+        "253820829882675200",
+        "254541893856161792",
+        "268379032100302848",
+        "254018033410928640",
+        "273570694493663232",
+        "269443271153971200",
+        "253816536291110912",
+        "254643518272729088",
+        "256839536645009408",
+        "253583957545742336",
+        "254314068217720832",
+        "253575491846434816",
+        "267946427135586304",
+        "254661501460180992",
+        "258685915247964160",
+        "253611195804708864",
+        "253580358128267264",
+        "256190163930083328",
+        "260821789003771904",
+        "268796897483845632",
+        "257945185592307712",
+        "253581341872910336",
+        "254000722905952256",
+        "253602030336110592",
+        "264130049236561920",
+        "270576349796659200",
+        "268829561632878592",
+        "270570808546455552",
+        "263975090817888256",
+        "272039220854419456",
+        "269421331655716864",
+        "272059849179688960",
+        "258272276435202048",
+        "272042264941850624",
+        "272527608887930880",
+        "271731706069807104",
+        "273505078667669504",
+        "271922882311909376",
+        "256822063593975808",
+        "273553023249182720",
+        "273153090796941312",
+        "253975775210926080",
+        "268829561632878592",
+        "273570694493663232",
+        "273897424773214208",
+        "255086311348662272",
+        "261862961419677696",
+        "253581832505815040",
+        "266160971796475904",
+        "268477130172559360",
+        "253987927141412864",
+        "255707282703151104",
+        "275580270713794560",
+        "266671639414992896",
+        "274706642652655616",
+        "273933801053253632",
+        "276706530642915328",
+        "278834279327232000",
+        "268740553787600896",
+        "279631311692394496",
+        "271344437991337984",
+        "253594962602520576",
+        "278993330589691904",
+        "277544021310599168",
+        "253611195804708864",
+        "270570808546455552"
+    ],
+    "deviceIds": [
+        "nmqHvYtCrO+QmD2/iF/KAw==",
+        "kmRajZ10NOqfs0ys+7zhgw==",
+        "AVa1AFlq2zeFiZCLbf0oh2c=",
+        "vWop7hbbk1CJbsEq3EfCVg==",
+        "AfYTRw9wmTLondk3wIYd2P4=",
+        "GzCbtXOyl0bSNa+8xOTx6Q==",
+        "UbxIJlrYJx7N0ot3wZIC7g==",
+        "CDmepZ/c0efIuIQUPUcy6Q==",
+        "EAfrxIj4FfW+3utcuuMNqw==",
+        "tMpsF113mdEkkqQ6A5aacA==",
+        "HnSU2pip_rfDW3LD+jKPtQ==",
+        "iQyd9dpwkAqki9dgv5BI9Q==",
+        "ojZroop1MWRJHYXY8IPd9w==",
+        "M6XAZFsQWDgkFQHFuiUxeg==",
+        "kpLnxkiGdpz_AKAEvkdaFQ==",
+        "Ab5LPERQKTdgnhzB2erNWE0=",
+        "10vgTJ31T5rh39uem2Irqg==",
+        "Q5SI4qJWtFhUJjGR6qylzg==",
+        "6ZHFB7k919sP2eQqVE5G2w==",
+        "1YyWiugxXG+DIxzyaIADug==",
+        "jBLTtcZIDX3bZxvM2CXgXw==",
+        "zSgFnsn36VWigP+d6EFtyA==",
+        "rZiApGqOs+qCECbGraKsOA==",
+        "RCk1CF1G8ylg8erszQ9GkA==",
+        "zMTg4F3G3RGoMh_LY5+0gA==",
+        "j7jJTvU3yMftfTEVHHPK2w==",
+        "UWJ81niilNE0i8vVcDjW0A==",
+        "H4E+0lgFAX23EjlrnuN1Gg==",
+        "AThYInaxtDHljVKRFXCy6uY=",
+        "AfIIzsO2hzUlkbncPT5N7XI=",
+        "NXDBiuBVOgUwuqDcktSqxw==",
+        "EAfrxIj4FfW+3utcuuMNqw==",
+        "1sFDn_U0MIgJXyhkYFGcDw==",
+        "3ixSiUrH0jgv+CzSDtvM+g==",
+        "ARBFy6EcDjNQrz5KTQzGbho=",
+        "HCiSs2bKsRNnvcnMu7Qftw==",
+        "hgc85QD/XB8qGBUgG1bjcA==",
+        "S17KOvB7VYwuGgWgTm4bYw==",
+        "cwbneC83Js7aW2Eb4r1oMw==",
+        "AY3ljS9sdDa7vWhqgrxvWD0=",
+        "ARxbpMOexDR9lQ_9MvltBkk=",
+        "AQCKZq5a1z3Riew3+npkVSc=",
+        "aQMygYPvzgk7v2azUVdySA==",
+        "1uoAvAo26UC3GZ1iHme9yQ==",
+        "Xaha6CYZRUTiYNBtYlPXJQ==",
+        "AfLFsFWbsD1Ftt3n6MwqkH0=",
+        "fXx70HZAwF59CF4W7RlDSg==",
+        "AQggjQlUlTSNkvgIUZfAfMI=",
+        "j3RMMpLRrkf+U__JjS+2lA==",
+        "cWxL5FCMWgi0MMLRf4KKFQ==",
+        "DRD4A8/SIaheUeMz3rbB1Q==",
+        "2q4n3FJht4dWh/Yo+gveoQ==",
+        "xhNANtettnt/BeKqqky+uQ==",
+        "d3RPiGySx4Hs0W2a/6tm7g==",
+        "NXDBiuBVOgUwuqDcktSqxw==",
+        "TuvUlI/BpN0INMnh2Bx/2w==",
+        "7fDUpMzestKJ7_j0QqkNAw==",
+        "AX3qNis_rD4AlWpJUqPU9HQ=",
+        "ARl6Fh2rAjX3rNDNrMm4CdM=",
+        "m66DZJTTyhAChX5lbu4hYQ==",
+        "m7pYkEq0U3wJi17L5GrbZw==",
+        "jNxHUmEtq88Tmzd7oFtSvg==",
+        "TzdFYSuJKDeTOStv_JaVOQ==",
+        "AePcszD6ATvWqGMmr__Gh6A=",
+        "1UrjrFgun8YHxfxI9F7hMQ==",
+        "m6_DC1J2LWJCfuvK2E6I6Q==",
+        "AbW7sky7uzvYr4EumPHM6nA=",
+        "AekqZA6WuzrTqAEm_yXrO6g=",
+        "5aTUObglcTpKtipARVkdUQ==",
+        "ASbWbYK7STgUob+V3z0KizU=",
+        "AdMIwaTluT30m3fVeB1ohy0=",
+        "TuvUlI/BpN0INMnh2Bx/2w==",
+        "ARBFy6EcDjNQrz5KTQzGbho=",
+        "_uSe3laxbMLijYk8+pZqfw==",
+        "ASb970qYK0_1hZ04TB_yLQ==",
+        "8VE2s5ZpoIwGw4sm5pclnA==",
+        "ku1rEiKnevsVYnRjTNNTfw==",
+        "U0fbFPqy_XPpkiRLb2T_8w==",
+        "dRNHN9Sn2Vkx3en7k4l03A==",
+        "ASvLP1kNqjDSqquemzIJQ3s=",
+        "VF7lw1zZ+VgWmvQo5Ms/6w==",
+        "ATfLRBGpJzqJmEAnONO3Ku0=",
+        "AQxVy0rP9DpRhS8t1pKCt0s=",
+        "cY0FPr+6d_vRObwy1aYspQ==",
+        "KBK5D4VV37zUR1EsHmjTGg==",
+        "YsBzaoSZ76PgTIldHtro+w==",
+        "AVzGo4+_Ozjxkoeiq1Z1juU=",
+        "lzGKwmKE8RmIgzf5024MUA==",
+        "z4gmQkRyhY7tL9nzFH_geQ==",
+        "vvMU2CvuXazQGyneU3xJ8Q==",
+        "LtYrxF5zkt+yFcakidSy_w==",
+        "x8xUN3x/zAWWA3jGyhwwMA==",
+        "Xt124+AG70hA8CBKnhK0GA==",
+        "Xaha6CYZRUTiYNBtYlPXJQ==",
+        "7fDUpMzestKJ7_j0QqkNAw==",
+        "DZALBeoiPNwCraK8IiW3VQ=="
+    ]
+    }
+  upstreams.conf: |
+    # upsync配置中，默认 server 配置不可或缺,可以随便写
+    # server 47.74.46.234:8082;
+    # 连接consul server，获取动态upstreams，配置负载均衡信息，间隔0.5s获取配置信息
+    # upsync 172.16.5.241:8500/v1/health/service/coupon upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+    # 动态获取consul server相关负载均衡配置信息持久化在硬盘
+    # upsync_dump_path /usr/local/openresty/nginx/conf/servers/upstream.conf; 
+    upstream user_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-user upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_user.conf;
+    }
+
+    upstream invite_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-user upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_user.conf;
+    }
+
+    upstream push_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/hho-push upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_push.conf;
+    }
+
+    upstream push_grpc_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/hho-push-grpc upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_push_grpc.conf;
+    }
+
+    upstream live_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-live upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_live.conf;
+    }
+
+    upstream live_grpc_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-live-grpc upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_live_grpc.conf;
+    }
+
+    upstream coupon_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/coupon-server upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_coupon.conf;
+    }
+
+    upstream file_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/hho-push upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_push.conf;
+    }
+
+    upstream otm_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/hho-otm upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_otm.conf;
+    }
+
+    upstream fulfill_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/hho-fulfill upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_fulfill.conf;
+    }
+
+    upstream item_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-item upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_item.conf;
+    }
+
+    upstream pdp_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-pdp upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_pdp.conf;
+    }
+
+    upstream shopify_api_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/shopify-web-api upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_shopify.conf;
+    }
+
+    upstream points_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-points upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_points.conf;
+    }
+
+    upstream order_reviews_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-review upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_review.conf;
+    }
+
+    upstream social_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-social upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_social.conf;
+    }
+
+    upstream kankan_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-kankan upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_kankan.conf;
+    }
+
+    upstream feeds_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-feeds upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_feeds.conf;
+    }
+
+    upstream feeds_service_staging {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/feeds_staging upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_feeds_staging.conf;
+    }
+
+    upstream search_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-search upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_search.conf;
+    }
+
+    upstream static_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/static upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_static.conf;
+    }
+
+    upstream sync_grpc_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-sync-grpc upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_sync_grpc.conf;
+      keepalive 100;
+      keepalive_requests 1000;
+      # keepalive_time 1h;
+      keepalive_timeout 600s;
+    }
+
+    upstream sync_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-sync upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_sync.conf;
+    }
+
+    upstream im_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-im upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_im.conf;
+    }
+
+    upstream ip_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-ip upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_ip.conf;
+    }
+
+    upstream config_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-config upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_config.conf;
+    }
+
+    upstream trade_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-trade upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_trade.conf;
+    }
+
+    upstream marketing_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-marketing upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_marketing.conf;
+    }
+
+    upstream marketing_grpc_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-marketing-grpc upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_marketing_grpc.conf;
+      keepalive 100;
+      keepalive_requests 1000;
+      # keepalive_time 1h;
+      keepalive_timeout 600s;
+    }
+
+    upstream cart_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-cart upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_cart.conf;
+    }
+
+    upstream hot_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-hot upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_hot.conf;
+    }
+
+    upstream graphql_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-graphql upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_graphql.conf;
+    }
+
+    upstream refund_service {
+      #dummy server entry to make nginx config check happy
+      server 127.0.0.1:11111 down;
+      upsync 172.16.5.241:8500/v1/health/service/aquaman-refund upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_refund.conf;
+    }
+  nginx.conf: |
+    #user  nobody;
+    worker_processes  1;
+
+    error_log  logs/error.log debug;
+
+    pid        logs/nginx.pid;
+
+    events {
+        worker_connections  10240;
+    }
+
+    http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    underscores_in_headers on;
+
+    log_format main escape=none '$remote_addr ^$http_HHO_USER_ID^ ^$http_device_id^ ^$allow^ ^$rid^ [$time_local] ^$request^ '
+                      '$status ^$request_time^ ^$upstream_response_time^ $body_bytes_sent ^$http_referer^ '
+                      '^$http_user_agent^ ^$http_x_forwarded_for^ ^$upstream_addr^ ^$http___bucket_id__^ ^$request_body_content^';
+
+    map $request_body $request_body_content {
+        "~(.*[{,]\"password\":\")(?:[^\\\"]|\\.)*(\"[,}].*)" $1********$2;
+        default $request_body;
+    }
+
+
+    sendfile        on;
+
+    keepalive_timeout  650s;
+
+    client_header_timeout 1d;
+    client_body_timeout 1d;
+
+    # 开启gzip
+    gzip on;
+
+    # 设置允许压缩文件的最小字节数
+    gzip_min_length 100;
+
+    # 压缩级别(0-9)，数字越大压缩效果越好，但也占用CPU性能
+    gzip_comp_level 9;
+
+    # 压缩的文件类型
+    gzip_types text/plain application/javascript application/json application/x-javascript text/css;
+
+    lua_package_path "$prefix/lua/?.lua;/usr/local/openresty/site/lualib/?.lua;;";
+
+    # 表示设置了一块共享的内存区域,大小为10m
+    lua_shared_dict rewrite_conf 1m;
+    lua_shared_dict acl 1m;
+    lua_shared_dict black_and_white_list 1m;
+    lua_shared_dict uid 1m;
+    lua_shared_dict did 1m;
+    init_by_lua_file lua/init.lua;
+
+    include upstreams.conf;
+    resolver 223.5.5.5 8.8.8.8;
+    init_worker_by_lua_block {
+
+        init_white_list = function(premature,delay)
+            require('white_list_util').init(delay)
+        end
+
+        local ok, err = ngx.timer.at(1, init_white_list, 60)
+        if not ok then
+            log(ERR, "failed to create timer: ", err)
+            return
+        end
+    }
+
+    # HTTPS server
+    server {
+        listen       80;
+        server_name  _;
+
+        client_max_body_size 10m;
+        set_by_lua $rid 'return require("request_id_util").return_request_id()';
+        set_by_lua $allow 'return is_allowed("/(user_feeds)")';
+
+        client_header_timeout 1d;
+        client_body_timeout 1d;
+
+        access_log  logs/access.log  main;
+
+        error_page 497 https://$host$request_uri;
+
+
+        #如果客户端在10秒内没收到连接会自动断开，此时网关会报错499，如果下方proxy_ignore_client_abort设置为on则网关会保持和upstream的连接不会断开
+        #proxy_ignore_client_abort on;
+
+         location = / {
+            access_log    off;
+            rewrite ^  https://www.7sgood.com/ ;
+         }
+
+        location = /use-protocol.html {
+             root html;
+        }
+
+        location = /personal-policy.html {
+             root html;
+        }
+
+        location = /favicon.ico {
+            add_header Content-Type text/plain;
+            log_not_found off;
+            access_log    off;
+            return 200 'OK';
+        }
+
+        # robots.txt switchOff access_log and DisAllow indexing
+        location = /robots.txt {
+            add_header Content-Type text/plain;
+            log_not_found off;
+            access_log    off;
+            return 200 "User-Agent: *\nDisallow: /";
+        }
+
+        #
+        # static page server
+        #
+        # location /s/ {
+        #     proxy_pass http://static_service;
+        #     proxy_set_header   Host    $host;
+        # }
+
+        location = /composite {
+            access_by_lua_block {
+                require("composite").access();
+            }
+            content_by_lua_block {
+                require("composite").request();
+            }
+             header_filter_by_lua_block {
+                require("composite").response();
+             }
+        }
+
+        #
+        # Restful API
+        #
+        location / {
+            set_by_lua $my_upstream 'return get_upstream("default_server")';
+
+            add_header 'Access-Control-Allow-Origin'  "$http_origin" always;
+            add_header 'Access-Control-Allow-Methods'  'GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS' always;
+            add_header 'Access-Control-Allow-Credentials'  'true' always;
+            add_header 'Access-Control-Expose-Headers'  '*' always;
+            add_header 'Access-Control-Max-Age'  '172800' always;
+            add_header 'Access-Control-Allow-Headers' 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, line-token, accessPassword, HHO-USER-ID, device-id, Cache-Control, X-Token, X-User-Id, operation-name' always;
+
+            if ( $allow = 10 ) {
+                return 204;
+            }
+
+            if ( $allow = 0 ) {
+                return 403 'Block';
+            }
+
+            access_by_lua_block {
+                local uri = ngx.var.uri
+                if uri == '/user_feeds/v2/buybuy/list' or uri == '/user_feeds/kankan/list' then
+                    local uid = ngx.var.http_hho_user_id
+                    local bindDict = ngx.shared.acl["BIND"]
+                    if bindDict[uid] then
+                        local redis = require 'redis'
+                        local res,err = redis.get(uid)
+                        if not err and res ~= ngx.null then
+                            ngx.req.set_header("hho_bind_user_id", res)
+                            ngx.log(ngx.INFO,"hho_bind_user_id: ",res)
+                        end
+                    end
+                end
+            }
+
+            proxy_set_header   X-Request-ID $rid;
+            proxy_set_header   Connection "";
+            proxy_set_header   Host    $host;
+            proxy_set_header   X-Real-IP   $remote_addr;
+            proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header   __bucket_id__ $http___bucket_id__;
+
+            proxy_hide_header Access-Control-Allow-Origin ;
+            proxy_hide_header Access-Control-Allow-Methods  ;
+            proxy_hide_header Access-Control-Allow-Credentials ;
+            proxy_hide_header Access-Control-Expose-Headers  ;
+            proxy_hide_header Access-Control-Max-Age  ;
+            proxy_hide_header Access-Control-Allow-Headers;
+
+            if ($my_upstream = "default_server") {
+                return 404;
+            }
+            proxy_pass http://$my_upstream;
+            add_header 'Access-Control-Allow-Headers' 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, line-token, accessPassword, HHO-USER-ID, device-id' always;
+        }
+
+
+
+        location /test {
+
+            add_header Content-Type text/plain;
+            content_by_lua_block{
+                if ngx.shared.uid[ngx.var.http_hho_user_id] then
+                    ngx.say(ngx.var.http_hho_user_id .. ' is ' .. ngx.shared.uid[ngx.var.http_hho_user_id])
+                end
+                if not ngx.shared.uid[ngx.var.http_hho_user_id] then
+                    ngx.say('http_hho_user_id is ' ..  'nil')
+                end
+                if ngx.shared.did[ngx.var.http_device_id] then
+                    ngx.say(ngx.var.http_device_id .. ' is ' .. ngx.shared.did[ngx.var.http_device_id])
+                end
+                if not ngx.shared.did[ngx.var.http_device_id] then
+                    ngx.say('http_device_id is ' .. 'nil')
+                end
+            }
+        }
+
+        location /bind {
+            add_header 'Access-Control-Allow-Origin'  "*";
+            add_header 'Access-Control-Allow-Credentials'  'true';
+            add_header 'Access-Control-Allow-Methods'  'GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS';
+            add_header 'Access-Control-Expose-Headers'  '*';
+            add_header 'Access-Control-Max-Age'  '172800';
+            add_header 'Access-Control-Allow-Headers' 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, line-token, accessPassword, hho_user_id, device-id, Cache-Control, X-Token, X-User-Id, operation-name' always;
+
+            if ($request_method = 'OPTIONS') {
+                return 204;
+            }
+            access_by_lua_block {
+                local cjson = require "cjson.safe"
+                local uid = ngx.var.http_hho_user_id
+                local bindDict = ngx.shared.acl["BIND"]
+                if not bindDict[uid] then
+                    ngx.status=200
+                    json_response = {success=true,errCode=403,errMessage="this account is not allowed to bind another account",data={errCode=403,errMessage="this account is not allowed to bind another account"}}
+                    ngx.say(cjson.encode(json_response))
+                    ngx.exit(200)
+                end
+                ngx.header["Content-Type"] = "application/json"
+            }
+            content_by_lua_block{
+                local cjson = require "cjson.safe"
+                local uid = ngx.var.http_hho_user_id
+
+                local request_method = ngx.var.request_method
+
+                local redis = require "redis"
+
+                if request_method == "POST" then
+                    local uri = ngx.var.uri
+                    local parts = split(uri,"/")
+                    local bindUid = parts[3]
+                    local ok,err = redis.set(uid,bindUid)
+                    if not ok then
+                        ngx.status=500
+                        json_response = {success=false,errMessage=err}
+                        ngx.say(cjson.encode(json_response))
+                        ngx.exit(500)
+                    end
+                    ngx.status=200
+                    json_response = {success=true,data={bindUid=bindUid}}
+                    ngx.say(cjson.encode(json_response))
+                    ngx.exit(200)
+                end
+
+                if request_method == "DELETE" then
+                    local ok,err = redis.delete(uid)
+                    if not ok then
+                        ngx.status=500
+                        json_response = {success=false,errMessage=err}
+                        ngx.say(cjson.encode(json_response))
+                        ngx.exit(500)
+                    end
+                    ngx.status=200
+                    json_response = {success=true}
+                    ngx.say(cjson.encode(json_response))
+                    ngx.exit(200)
+                end
+
+                if request_method == "GET" then
+                    local ok,err = redis.get(uid)
+                    if not ok then
+                        ngx.status=500
+                        json_response = {success=false,errMessage=err}
+                        ngx.say(cjson.encode(json_response))
+                        ngx.exit(500)
+                    end
+                    ngx.status=200
+                    json_response = {success=true,data={bindUid=ok}}
+                    ngx.say(cjson.encode(json_response))
+                    ngx.exit(200)
+                end
+
+
+            }
+        }
+
+
+        #
+        # 推送相关的RPC
+        #
+        location /com.hho.push.v1.DeviceTokenService {
+            grpc_pass grpc://push_grpc_service;
+        }
+
+        #
+        # 直播相关的RPC
+        # curl -k https://localhost:443/com.hho.aquaman.live.*
+        #
+        location ^~/com.hho.aquaman.live {
+            grpc_pass grpc://live_grpc_service;
+        }
+
+        #
+        # sync相关的RPC
+        # curl -k https://localhost:443/com.hho.aquaman.sync.*
+        #
+        location ^~/com.hho.aquaman.sync {
+            grpc_pass grpc://sync_grpc_service;
+        }
+
+        location ^~/com.hho.aquaman.grpc.demo.proto.NoticeService {
+            grpc_pass grpc://sync_grpc_service;
+        #             grpc_send_timeout 600s;
+        #             grpc_read_timeout 600s;
+            grpc_socket_keepalive on;
+        }
+
+        location ^~/com.hho.aquaman.grpc.demo.proto.BidirectionalService {
+            grpc_pass grpc://sync_grpc_service;
+            grpc_read_timeout 600s;
+            grpc_send_timeout 600s;
+            grpc_socket_keepalive on;
+        }
+
+        location ^~/com.hho.aquaman.grpc.demo.proto.HelloService {
+            grpc_pass grpc://sync_grpc_service;
+            grpc_read_timeout 600s;
+            grpc_send_timeout 600s;
+            grpc_socket_keepalive on;
+        }
+
+        location ^~/"com.hho.aquaman.marketing.proto.UserService {
+            grpc_pass grpc://marketing_grpc_service;
+            grpc_read_timeout 600s;
+            grpc_send_timeout 600s;
+            grpc_socket_keepalive on;
+        }
+
+    }
+
+    }

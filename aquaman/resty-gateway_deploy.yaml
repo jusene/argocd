@@ -18,11 +18,19 @@ spec:
     spec:
       containers:
       - name: resty-gateway
-        image: reg.hho-inc.com/aquaman-daily/resty-gateway:1654483658
+        image: reg.hho-inc.com/aquaman-daily/resty-gateway:1654498299
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
           protocol: TCP
+        volumeMounts:
+          - name:  config-volume
+            mountPath:  /usr/local/openresty/nginx/conf
+      volumes:
+      - name: config-volume
+        configMap:
+          defaultMode: 420
+          name: resty-gateway
 
 ---
 kind: Service
