@@ -220,160 +220,160 @@ data:
     # upsync配置中，默认 server 配置不可或缺,可以随便写
     # server 47.74.46.234:8082;
     # 连接consul server，获取动态upstreams，配置负载均衡信息，间隔0.5s获取配置信息
-    # upsync 172.16.5.241:8500/v1/health/service/coupon upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+    # upsync 8.211.144.225:8500/v1/health/service/coupon upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
     # 动态获取consul server相关负载均衡配置信息持久化在硬盘
     # upsync_dump_path /usr/local/openresty/nginx/conf/servers/upstream.conf; 
     upstream user_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-user upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-user upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_user.conf;
     }
 
     upstream invite_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-user upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-user upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_user.conf;
     }
 
     upstream push_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/hho-push upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/hho-push upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_push.conf;
     }
 
     upstream push_grpc_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/hho-push-grpc upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/hho-push-grpc upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_push_grpc.conf;
     }
 
     upstream live_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-live upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-live upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_live.conf;
     }
 
     upstream live_grpc_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-live-grpc upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-live-grpc upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_live_grpc.conf;
     }
 
     upstream coupon_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/coupon-server upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/coupon-server upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_coupon.conf;
     }
 
     upstream file_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/hho-push upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/hho-push upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_push.conf;
     }
 
     upstream otm_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/hho-otm upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/hho-otm upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_otm.conf;
     }
 
     upstream fulfill_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/hho-fulfill upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/hho-fulfill upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_fulfill.conf;
     }
 
     upstream item_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-item upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-item upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_item.conf;
     }
 
     upstream pdp_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-pdp upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-pdp upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_pdp.conf;
     }
 
     upstream shopify_api_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/shopify-web-api upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/shopify-web-api upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_shopify.conf;
     }
 
     upstream points_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-points upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-points upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_points.conf;
     }
 
     upstream order_reviews_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-review upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-review upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_review.conf;
     }
 
     upstream social_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-social upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-social upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_social.conf;
     }
 
     upstream kankan_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-kankan upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-kankan upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_kankan.conf;
     }
 
     upstream feeds_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-feeds upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-feeds upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_feeds.conf;
     }
 
     upstream feeds_service_staging {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/feeds_staging upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/feeds_staging upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_feeds_staging.conf;
     }
 
     upstream search_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-search upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-search upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_search.conf;
     }
 
     upstream static_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/static upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/static upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_static.conf;
     }
 
     upstream sync_grpc_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-sync-grpc upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-sync-grpc upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_sync_grpc.conf;
       keepalive 100;
       keepalive_requests 1000;
@@ -384,49 +384,49 @@ data:
     upstream sync_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-sync upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-sync upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_sync.conf;
     }
 
     upstream im_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-im upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-im upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_im.conf;
     }
 
     upstream ip_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-ip upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-ip upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_ip.conf;
     }
 
     upstream config_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-config upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-config upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_config.conf;
     }
 
     upstream trade_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-trade upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-trade upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_trade.conf;
     }
 
     upstream marketing_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-marketing upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-marketing upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_marketing.conf;
     }
 
     upstream marketing_grpc_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-marketing-grpc upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-marketing-grpc upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_marketing_grpc.conf;
       keepalive 100;
       keepalive_requests 1000;
@@ -437,28 +437,28 @@ data:
     upstream cart_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-cart upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-cart upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_cart.conf;
     }
 
     upstream hot_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-hot upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-hot upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_hot.conf;
     }
 
     upstream graphql_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-graphql upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-graphql upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_graphql.conf;
     }
 
     upstream refund_service {
       #dummy server entry to make nginx config check happy
       server 127.0.0.1:11111 down;
-      upsync 172.16.5.241:8500/v1/health/service/aquaman-refund upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
+      upsync 8.211.144.225:8500/v1/health/service/aquaman-refund upsync_timeout=6m upsync_interval=500ms upsync_type=consul_health strong_dependency=off;
       upsync_dump_path /usr/local/openresty/nginx/conf/servers/server_refund.conf;
     }
   nginx.conf: |
