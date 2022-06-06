@@ -18,8 +18,47 @@ spec:
     spec:
       containers:
       - name: resty-gateway
-        image: reg.hho-inc.com/aquaman-daily/resty-gateway:1654481656
+        image: reg.hho-inc.com/aquaman-daily/resty-gateway:1654482411
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 443
+        - containerPort: 80
           protocol: TCP
+        resources:
+          requests:
+            cpu: 500Mi
+            memory: 1024m
+          limits:
+            cpu: 1000Mi
+            memory: 2048m
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name:  resty-gateway-serv
+  namespace: aquaman-daily
+spec:
+  selector:
+    app: resty-gateway
+  ports:
+  - name:  name-of-the-port
+    port:  80
+    targetPort:  80
+
+---
+apiVersion: apisix.apache.org/v2beta3
+kind: ApisixRoute
+metadata:
+  name: resty-gateway
+  namespace: aquaman-daily
+spec:
+  http:
+  - name: root
+    match:
+      hosts:
+      - daiy-api.hho-inc.com
+      paths:
+      - /*
+    backends:
+    - serviceName: resty-gateway-serv
+      servicePort: 80
