@@ -96,5 +96,5 @@ spec:
   hosts:
   - daily-api.hho-inc.com
   secret:
-    name: daily-api
-    namespace: aquaman-daily
+    name: hho-inc.com
+    namespace: default
