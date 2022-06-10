@@ -58,8 +58,11 @@ data:
       consul_sd_configs:
       - server: consul-service.devops:8500
         services: ['node-exporter']
-        labels:
-          hostname: __meta_consul_service_id
+    
+    - job_name: kubernetes-node-exporter
+      consul_sd_configs:
+      - server: consul-service.devops:8500
+        services: ['k8s-node-exporter']
 
     - job_name: HTTPCheck
       metrics_path: /probe
