@@ -35,7 +35,7 @@ spec:
             - name: CUBEJS_DB_TYPE
               value: clickhouse
             - name: CUBEJS_DEV_MODE
-              value: "false" # NEVER RUN DEV MODE IN K8S
+              value: "true" # NEVER RUN DEV MODE IN K8S
             - name: CUBEJS_EXTERNAL_DEFAULT
               value: "true"
             - name: CUBEJS_REDIS_URL

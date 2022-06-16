@@ -39,7 +39,7 @@ spec:
         - name: CUBEJS_SCHEDULED_REFRESH_DEFAULT
           value: "true"
         - name: CUBEJS_DEV_MODE
-          value: "false"
+          value: "true"
         - name: CUBEJS_REDIS_URL
           value: redis://hhorootredis@redis.hho-inc.com:6379
         ports:
