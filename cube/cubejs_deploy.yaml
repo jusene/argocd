@@ -53,5 +53,3 @@ spec:
           nfs:
             path: /data/cube
             server: nfs.hho-inc.com
-      restartPolicy: Always
-      imagePullPolicy: Always
