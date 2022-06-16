@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: cube-refresh-worker
+  name: cube-refresh-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: cube-refresh-worker
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        name: cube-refresh-worker
+    spec:
+      containers:
+        - image: cubejs/cube:v0.28.14
+          name: cube-refresh-worker
+          env: # Refer to https://cube.dev/docs/reference/environment-variables for more options
+            - name: CUBEJS_API_SECRET
+              value: c3ef13e66abcf0297a746c5ce6620f59
+            - name: CUBEJS_CUBESTORE_HOST
+              value: "cubestore-router" # USING THIS CUBESTORE HOST BECAUSE THE CUBESTORE ROUTER SERVICE IS NAMED "CUBESTORE-ROUTER"
+            - name: CUBEJS_DB_HOST
+              value: clickhouse-clickhouse.clickhouse
+            - name: CUBEJS_DB_PORT
+              value: "8123"
+            - name: CUBEJS_DB_USER
+              value: clickhouse_operator
+            - name: CUBEJS_DB_PASS
+              value: clickhouse_operator_password
+            - name: CUBEJS_DB_TYPE
+              value: clickhouse
+            - name: CUBEJS_DEV_MODE
+              value: "false" # NEVER RUN DEV MODE IN K8S
+            - name: CUBEJS_EXTERNAL_DEFAULT
+              value: "true"
+            - name: CUBEJS_REDIS_URL
+              value: redis://hhorootredis@redis.hho-inc.com:6379 # USING THIS REDIS URL BECAUSE THE REDIS SERVICE IS NAMED "REDIS"
+              # SPECIFY THIS INSTANCE TO ACT AS A REFRESH WORKER
+            - name: CUBEJS_REFRESH_WORKER
+              value: "true"
+          volumeMounts:
+          - mountPath: /cube/conf/schema
+            name: data
+      volumes:
+        - name: data
+          nfs:
+            path: /data/cube
+            server: nfs.hho-inc.com
