@@ -17,13 +17,13 @@ spec:
         name: cube-refresh-worker
     spec:
       containers:
-        - image: cubejs/cube:v0.28.14
+        - image: cubejs/cube:latest
           name: cube-refresh-worker
-          env: # Refer to https://cube.dev/docs/reference/environment-variables for more options
+          env: 
             - name: CUBEJS_API_SECRET
               value: c3ef13e66abcf0297a746c5ce6620f59
             - name: CUBEJS_CUBESTORE_HOST
-              value: "cubestore-router" # USING THIS CUBESTORE HOST BECAUSE THE CUBESTORE ROUTER SERVICE IS NAMED "CUBESTORE-ROUTER"
+              value: "cubestore-router" 
             - name: CUBEJS_DB_HOST
               value: clickhouse-clickhouse.clickhouse
             - name: CUBEJS_DB_PORT
@@ -35,11 +35,11 @@ spec:
             - name: CUBEJS_DB_TYPE
               value: clickhouse
             - name: CUBEJS_DEV_MODE
-              value: "true" # NEVER RUN DEV MODE IN K8S
+              value: "false" 
             - name: CUBEJS_EXTERNAL_DEFAULT
               value: "true"
             - name: CUBEJS_REDIS_URL
-              value: redis://hhorootredis@redis.hho-inc.com:6379 # USING THIS REDIS URL BECAUSE THE REDIS SERVICE IS NAMED "REDIS"
+              value: redis://redis:6379
               # SPECIFY THIS INSTANCE TO ACT AS A REFRESH WORKER
             - name: CUBEJS_REFRESH_WORKER
               value: "true"
