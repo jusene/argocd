@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: cubestore-router
+  name: cubestore-router
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: cubestore-router
+  template:
+    metadata:
+      labels:
+        service: cubestore-router
+    spec:
+      containers:
+        - image: cubejs/cubestore:latest
+          name:  cubestore-router
+          env:
+          - name: CUBESTORE_META_PORT
+            value: "9999"
+          - name: CUBESTORE_DATA_DIR
+            value: /cube/.cubestore/data
+          - name: CUBESTORE_REMOTE_DIR
+            value: /cube/data
+          - name: CUBESTORE_SERVER_NAME
+            value: cubestore-router:9999
+          - name: CUBESTORE_WORKERS
+            value: cubestore-workers-0.cubestore-workers:10000,cubestore-workers-1.cubestore-workers:10000,cubestore-workers-2.cubestore-workers:10000
+          ports:
+          - containerPort: 9999
+          volumeMounts:
+            - name:  cubestore-pv
+              mountPath:  /cube/data
+      volumes:
+        - name: cubestore-pv
+          nfs:
+            path: /data/cubestore
+            server: nfs2.hho-inc.com
+          
