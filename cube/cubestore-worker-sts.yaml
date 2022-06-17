@@ -46,7 +46,7 @@ spec:
         command:  ['sh', '-c', 'until nc -vz cubestore-router:9999; do echo "Waiting for router"; sleep 2; done;']
   volumeClaimTemplates:
     - metadata:
-      name: cubestore-pv
+        name: cubestore-pv
       spec:
         accessModes: ["ReadWriteOnce"]
         resources:
