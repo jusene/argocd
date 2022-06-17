@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    service: cubestore-workers
+  name: cubestore-workers
+spec:
+  replicas: 3 # If you edit this, make sure to edit the CUBESTORE_WORKERS as well
+  serviceName: cubestore-workers
+  selector:
+    matchLabels:
+      service: cubestore-workers
+  template:
+    metadata:
+      labels:
+        service: cubestore-workers
+    spec:
+      containers:
+        - name: cubestore-workers
+          image: cubejs/cubestore:latest
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: CUBESTORE_META_ADDR
+              value: cubestore-router:9999
+            - name: CUBESTORE_DATA_DIR
+              value: /cube/.cubestore/data
+            - name: CUBESTORE_REMOTE_DIR
+              value: /cube/data
+            - name: CUBESTORE_SERVER_NAME
+              value: "$(POD_NAME).cubestore-workers:10000"
+            - name: CUBESTORE_WORKERS
+              value: cubestore-workers-0.cubestore-workers:10000,cubestore-workers-1.cubestore-workers:10000,cubestore-workers-2.cubestore-workers:10000
+            - name: CUBESTORE_WORKER_PORT
+              value: "10000"
+          ports:
+            - containerPort: 10000
+          volumeMounts:
+            - mountPath: /cube/data
+              name: cubestore-pv
+      initContainers:
+      - name:  init-worker
+        image:  busybox
+        command:  ['sh', '-c', 'until nc -vz cubestore-router:9999; do echo "Waiting for router"; sleep 2; done;']
+      volumeClaimTemplates:
+      - metadata:
+          name: cubestore-pv
+          spec:
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 10Gi
+      
+
