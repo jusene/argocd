@@ -21,7 +21,7 @@ spec:
         args:
           - --web.listen-address="":8100"
         ports:
-        - containerPort: 9100
+        - containerPort: 8100
           name: exporter
       hostNetwork: true
       hostPID: true
