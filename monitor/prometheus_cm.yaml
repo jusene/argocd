@@ -46,6 +46,7 @@ data:
           severity: error
         annotations:
           summary: "SSL certificate expired (instance {{ $labels.instance }})"
+          description: "SSL certificate has expired already\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
 
 
       
