@@ -70,7 +70,7 @@ data:
         module: [http_2xx]
       static_configs:
       - targets: 
-        - ch.hhodata.com
+        - https://ch.hhodata.com
         labels:
           blackbox: 'HTTPCheck'
 
