@@ -18,6 +18,8 @@ spec:
       containers:
       - name: node-exporter
         image: reg.hho-inc.com/devops/node-exporter:latest
+        args:
+          - --web.listen-address="":8100"
         ports:
         - containerPort: 9100
           name: exporter
