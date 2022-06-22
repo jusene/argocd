@@ -110,6 +110,10 @@ data:
         - https://pages.7sgood.com
         - https://daily-pages.7sgood.com
         - https://www.7sgood.com
+        - https://ads.hhodata.com
+        - https://m.hhodata.com
+        - https://m.7sgood.com
+        - https://www.hhodata.com
         labels:
           blackbox: 'HTTPCheck'
 
