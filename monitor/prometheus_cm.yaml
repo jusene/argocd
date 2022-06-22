@@ -21,7 +21,7 @@ data:
     - name: blackbox_probe
       rules:
       - alert: Service Unavailable
-        expr: probe_http_status_code >= 400 or probe_http_status_code < 200
+        expr: probe_http_status_code >= 500 or probe_http_status_code < 200
         for: 1m
         labels: 
           severity: critical
@@ -74,7 +74,6 @@ data:
         - https://daily-api.hhocool.com
         - https://api.hhocool.com
         - https://nb.hhocool.com
-        - https://cdn.hhocool.com
         - https://www.hhocool.com
         - https://daily-share.hhocool.com
         - https://share.hhocool.com
