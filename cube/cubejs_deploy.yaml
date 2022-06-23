@@ -46,7 +46,7 @@ spec:
         - containerPort: 3000
         - containerPort: 4000
         volumeMounts:
-        - mountPath: /cube/conf/schema
+        - mountPath: /cube/conf
           name: data
       volumes:
         - name: data
