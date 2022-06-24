@@ -1,0 +1,11 @@
+apiVersion: apisix.apache.org/v2beta3
+kind: ApisixTls
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  hosts:
+  - argocd.hho-inc.com
+  secret:
+    name: hho-inc.com
+    namespace: default
