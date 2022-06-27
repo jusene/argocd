@@ -1,0 +1,78 @@
+apiVersion: "clickhouse.altinity.com/v1"
+kind: "ClickHouseInstallation"
+
+metadata:
+  name: "clickhouse"
+  namespace: clickhouse-analytics
+
+spec:
+  defaults:
+    templates:
+      dataVolumeClaimTemplate: default
+      logVolumeClaimTemplate: default
+      podTemplate: clickhouse
+      serviceTemplate: clickhouse-service
+
+  configuration:
+    zookeeper:
+      nodes:
+      - host: zk-cs
+    clusters:
+      - name: hho-analytics
+        layout:
+          shardsCount: 4
+          replicasCount: 1
+    files:
+      config.d/dictionaries.xml: |
+        <clickhouse><dictionaries_config>dictionaries/*.xml</dictionaries_config></clickhouse>
+
+  templates:
+    volumeClaimTemplates:
+      - name: default
+        spec:
+          storageClassName: sc-nfs-analytics
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 500Gi
+
+    serviceTemplates:
+      - name: clickhouse-service
+        spec:
+          ports:
+          - name: http
+            port: 8123
+          - name: tcp
+            port: 9000
+          type: NodePort
+
+    podTemplates:
+      - name: clickhouse
+        spec:
+          affinity:
+            podAntiAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - labelSelector:
+                    matchExpressions:
+                    - {key: app.kubernetes.io/instance, operator: In, values: ['clickhouse-analytics']}
+                  topologyKey: kubernetes.io/hostname
+            nodeAffinity:
+              preferredDuringSchedulingIgnoredDuringExecution:
+                - weight: 80
+                  preference:
+                    matchExpressions:
+                    - key: instance
+                      operator: In
+                      values: ["clickhouse"]
+          containers:
+            - name: clickhouse-pod
+              image: reg.hho-inc.com/devops/clickhouse-server-maxmind:latest
+              imagePullPolicy: Always
+              livenessProbe:
+                exec:
+                  command:
+                    - echo
+                initialDelaySeconds: 60
+                timeoutSeconds: 10
+              
