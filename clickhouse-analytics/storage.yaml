@@ -1,9 +1,9 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: sc-nfs
+  name: sc-nfs-analytics
   namespace: clickhouse-analytics
-provisioner: clickhouse-nfs
+provisioner: clickhouse-nfs-analytics
 allowVolumeExpansion: true
 parameters:
   archiveOnDelete: "false"

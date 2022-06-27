@@ -132,7 +132,7 @@ spec:
       name: datadir
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: sc-nfs
+      storageClassName: sc-nfs-analytics
       resources:
         requests:
           storage: 20Gi
