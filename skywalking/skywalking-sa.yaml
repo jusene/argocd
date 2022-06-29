@@ -22,7 +22,7 @@ kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: skywalking
-  namespace: skywalking
+  namespace: default
   labels:
     app: skywalking
     component: "oap"
@@ -50,7 +50,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: skywalking
-  namespace: skywalking
+  namespace: default
   labels:
     app: skywalking
 roleRef:
