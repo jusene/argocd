@@ -1,0 +1,16 @@
+apiVersion: apisix.apache.org/v2beta3
+kind: ApisixRoute
+metadata:
+  name: skywalking
+  namespace: skywalking
+spec:
+  http:
+  - name: root
+    match:
+      hosts:
+      - skywalking.hho-inc.com
+      paths:
+      - /*
+    backends:
+    - serviceName: skywalking-ui
+      servicePort: 80
