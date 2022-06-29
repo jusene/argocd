@@ -1,0 +1,83 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: skywalking
+    component: "oap"
+  name: skywalking-oap
+  namespace: skywalking
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: skywalking
+    component: "satellite"
+  name: skywalking-satellite
+  namespace: skywalking
+
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: skywalking
+  namespace: skywalking
+  labels:
+    app: skywalking
+    component: "oap"
+rules:
+  - apiGroups: [""]
+    resources: ["pods","configmaps"]
+    verbs: ["get", "watch", "list"]
+
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: skywalking-satellite
+  namespace: skywalking
+  labels:
+    app: skywalking
+    component: "satellite"
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "watch", "list"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: skywalking
+  namespace: skywalking
+  labels:
+    app: skywalking
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: skywalking
+  namespace: skywalking
+subjects:
+  - kind: ServiceAccount
+    name: skywalking-oap
+    namespace: skywalking
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: skywalking-satellite
+  namespace: skywalking
+  labels:
+    app: skywalking
+    component: "satellite"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: skywalking-satellite
+  namespace: skywalking
+subjects:
+  - kind: ServiceAccount
+    name: skywalking-satellite
+    namespace: skywalking
