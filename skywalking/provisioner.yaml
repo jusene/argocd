@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: provisioner-skywalking
+  namespace: skywalking
+
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: provisioner-runner-skywalking
+rules:
+  - apiGroups: [""]
+    resources: ["persistentvolumes"]
+    verbs: ["get", "list", "watch", "create", "delete"]
+  - apiGroups: [""]
+    resources: ["persistentvolumeclaims"]
+    verbs: ["get", "list", "watch", "update"]
+  - apiGroups: ["storage.k8s.io"]
+    resources: ["storageclasses"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["list", "watch", "create", "update", "patch"]
+  - apiGroups: [""]
+    resources: ["endpoints"]
+    verbs: ["create", "delete", "get", "list", "watch", "patch", "update"]
+
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: run-provisioner-skywalking
+subjects:
+  - kind: ServiceAccount
+    name: provisioner-skywalking
+    namespace: skywalking
+roleRef:
+  kind: ClusterRole
+  name: provisioner-runner-skywalking
+  apiGroup: rbac.authorization.k8s.io
+
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: provisioner
+  namespace: skywalking
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: provisioner
+  template:
+    metadata:
+      labels:
+        app: provisioner
+    spec:
+      serviceAccountName: provisioner-skywalking
+      containers:
+        - name: provisioner
+          image: xiedeyantu/nfs-client-provisioner
+          volumeMounts:
+            - name: root
+              mountPath: /persistentvolumes
+          env:
+            - name: PROVISIONER_NAME
+              value: clickhouse-nfs-skywalking
+            - name: NFS_SERVER
+              value: ceph-nfs1.hho-inc.com
+            - name: NFS_PATH
+              value: /data/skywalking
+      volumes:
+        - name: root
+          nfs:
+            server: ceph-nfs1.hho-inc.com
+            path: /data/skywalking
