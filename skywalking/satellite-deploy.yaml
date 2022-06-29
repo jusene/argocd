@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: skywalking
+    component: "satellite"
+  name: skywalking-satellite
+  namespace: skywalking
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: skywalking
+      component: "satellite"
+  template:
+    metadata:
+      labels:
+        app: skywalking
+        component: "satellite"
+    spec:
+      serviceAccountName: skywalking-satellite
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            podAffinityTerm:
+              topologyKey: kubernetes.io/hostname
+              labelSelector:
+                matchLabels:
+                  app: "skywalking"
+                  component: "satellite"
+      containers:
+      - name: satellite
+        image: skywalking.docker.scarf.sh/apache/skywalking-satellite:v0.4.0
+        imagePullPolicy: IfNotPresent
+        readinessProbe:
+          tcpSocket:
+            port: 11800
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        ports:
+        - containerPort: 11800
+          name: grpc
+        - containerPort: 1234
+          name: prometheus
+        env:
+        - name: SATELLITE_GRPC_CLIENT_FINDER
+          value: kubernetes
+        - name: SATELLITE_GRPC_CLIENT_KUBERNETES_NAMESPACE
+          value: "default"
+        - name: SATELLITE_GRPC_CLIENT_KUBERNETES_KIND
+          value: pod
+        - name: SATELLITE_GRPC_CLIENT_KUBERNETES_SELECTOR_LABEL
+          value: "app=skywalking,component=oap"
+        - name: SATELLITE_GRPC_CLIENT_KUBERNETES_EXTRA_PORT
+          value: "11800"
