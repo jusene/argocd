@@ -54,6 +54,8 @@ spec:
         - containerPort: 12800
           name: rest
         env:
+        - name: TZ
+          value: Asia/Shanghai
         - name: JAVA_OPTS
           value: "-Dmode=no-init -Xmx2g -Xms2g"
         - name: SW_CLUSTER
