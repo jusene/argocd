@@ -44,6 +44,8 @@ spec:
         - containerPort: 1234
           name: prometheus
         env:
+        - name: TZ
+          value: Asia/Shanghai
         - name: SATELLITE_GRPC_CLIENT_FINDER
           value: kubernetes
         - name: SATELLITE_GRPC_CLIENT_KUBERNETES_NAMESPACE

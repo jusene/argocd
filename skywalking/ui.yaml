@@ -27,3 +27,5 @@ spec:
         env:
         - name: SW_OAP_ADDRESS
           value: http://skywalking-oap:12800
+        - name: TZ
+          value: Asia/Shanghai
