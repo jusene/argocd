@@ -57,6 +57,14 @@ spec:
                     matchExpressions:
                     - {key: app.kubernetes.io/instance, operator: In, values: ['clickhouse-logs']}
                   topologyKey: kubernetes.io/hostname
+            nodeAffinity:
+              preferredDuringSchedulingIgnoredDuringExecution:
+                - weight: 80
+                  preference:
+                    matchExpressions:
+                    - key: instance
+                      operator: In
+                      values: ["clickhouse"]
           containers:
             - name: clickhouse-pod
               image: reg.hho-inc.com/devops/clickhouse-server-maxmind:latest
