@@ -1,0 +1,28 @@
+apiVersion: apisix.apache.org/v2beta3
+kind: ApisixRoute
+metadata:
+  name: ceph
+  namespace: rook-ceph
+spec:
+  http:
+  - name: root
+    match:
+      hosts:
+      - ceph.hho-inc.com
+      paths:
+      - /*
+    backends:
+    - serviceName: rook-ceph-mgr-dashboard
+      servicePort: 7000
+---
+apiVersion: apisix.apache.org/v2beta3
+kind: ApisixTls
+metadata:
+  name: ceph
+  namespace: rook-ceph
+spec:
+  hosts:
+  - ceph.hho-inc.com
+  secret:
+    name: hho-inc.com
+    namespace: default
