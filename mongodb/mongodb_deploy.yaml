@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+  namespace: devops
+  labels:
+    app: mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+        - name: mongodb
+          image: mongo:latest
+          imagePullPolicy:  IfNotPresent
+          env:
+          - name: MONGO_INITDB_ROOT_USERNAME
+            value: hhodb
+          - name: MONGO_INITDB_ROOT_PASSWORD
+            value: hhodb@2022
+          ports:
+            - containerPort: 27017
+              name: service
+          volumeMounts:
+            - name: storage
+              mountPath: /data/db
+      volumes:
+        - name: storage
+          storageClassName: sc-nfs
+
+---
+
