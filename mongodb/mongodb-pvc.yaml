@@ -1,0 +1,12 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mongodb-pvc
+  namespace: devops
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: sc-nfs
+  resources:
+    requests:
+      storage: 200Gi
