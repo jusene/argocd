@@ -32,7 +32,7 @@ spec:
               mountPath: /data/db
       volumes:
         - name: storage
-          storageClassName: sc-nfs
+          persistentVolumeClaim:
+            claimName: mongodb-pvc
 
 ---
-
