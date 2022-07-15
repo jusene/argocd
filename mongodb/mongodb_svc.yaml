@@ -11,7 +11,7 @@ spec:
     port: 27017
     protocol: TCP
     targetPort: 27017
-    nodePort: 37017
+    nodePort: 32017
   selector:
     app: mongodb
   type: NodePort
