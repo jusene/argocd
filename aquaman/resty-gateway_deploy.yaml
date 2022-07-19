@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: resty-gateway
+    name: resty-gateway
   name: resty-gateway
   namespace: aquaman-daily
 spec:
@@ -10,11 +10,11 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-       app: resty-gateway
+       name: resty-gateway
   template:
     metadata:
       labels:
-        app: resty-gateway
+        name: resty-gateway
     spec:
       containers:
       - name: resty-gateway
@@ -57,7 +57,7 @@ metadata:
   namespace: aquaman-daily
 spec:
   selector:
-    app: resty-gateway
+    name: resty-gateway
   ports:
   - name:  gateway
     port:  80
